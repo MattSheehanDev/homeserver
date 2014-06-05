@@ -1,0 +1,7 @@
+#Directories to ignore
+*.js
+*.map
+
+app/*.config
+node_modules/**/*
+

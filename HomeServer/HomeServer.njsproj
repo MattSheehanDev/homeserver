@@ -1,0 +1,386 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">11.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+    <Name>HomeServer</Name>
+    <RootNamespace>HomeServer</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>3bee675e-b4ed-4005-9396-140249f1fc83</ProjectGuid>
+    <ProjectHome>.</ProjectHome>
+    <StartupFile>app\server.js</StartupFile>
+    <StartWebBrowser>True</StartWebBrowser>
+    <SearchPath>
+    </SearchPath>
+    <WorkingDirectory>.</WorkingDirectory>
+    <OutputPath>.</OutputPath>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <ProjectTypeGuids>{3AF33F2E-1136-4D97-BBB7-1795711AC8B8};{349c5851-65df-11da-9384-00065b846f21};{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}</ProjectTypeGuids>
+    <ProjectView>ShowAllFiles</ProjectView>
+    <NodejsPort>1337</NodejsPort>
+    <TypeScriptSourceMap>true</TypeScriptSourceMap>
+    <TypeScriptModuleKind>CommonJS</TypeScriptModuleKind>
+    <EnableTypeScript>true</EnableTypeScript>
+    <StartWebBrowser>true</StartWebBrowser>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <DebugSymbols>true</DebugSymbols>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <DebugSymbols>true</DebugSymbols>
+  </PropertyGroup>
+  <ItemGroup>
+    <TypeScriptCompile Include="app\app.ts" />
+    <TypeScriptCompile Include="app\db.ts" />
+    <TypeScriptCompile Include="lib\commands.ts" />
+    <TypeScriptCompile Include="lib\config.ts" />
+    <TypeScriptCompile Include="lib\database.ts" />
+    <TypeScriptCompile Include="device.ts" />
+    <TypeScriptCompile Include="lib\http.ts" />
+    <TypeScriptCompile Include="Scripts\typings\node\mongodb.d.ts" />
+    <TypeScriptCompile Include="Scripts\typings\node\node.d.ts" />
+    <TypeScriptCompile Include="app\server.ts" />
+    <Content Include="node_modules\mongodb\.travis.yml" />
+    <Content Include="node_modules\mongodb\CONTRIBUTING.md" />
+    <Content Include="node_modules\mongodb\LICENSE" />
+    <Content Include="node_modules\mongodb\Makefile" />
+    <Content Include="node_modules\mongodb\node_modules\bson\.travis.yml" />
+    <Content Include="node_modules\mongodb\node_modules\bson\binding.gyp" />
+    <Content Include="node_modules\mongodb\node_modules\bson\browser_build\package.json" />
+    <Content Include="node_modules\mongodb\node_modules\bson\builderror.log" />
+    <Content Include="node_modules\mongodb\node_modules\bson\build\bson.vcxproj" />
+    <Content Include="node_modules\mongodb\node_modules\bson\build\bson.vcxproj.filters" />
+    <Content Include="node_modules\mongodb\node_modules\bson\build\config.gypi" />
+    <Content Include="node_modules\mongodb\node_modules\bson\build\Release\bson.exp" />
+    <Content Include="node_modules\mongodb\node_modules\bson\build\Release\bson.lib" />
+    <Content Include="node_modules\mongodb\node_modules\bson\build\Release\bson.node" />
+    <Content Include="node_modules\mongodb\node_modules\bson\build\Release\bson.pdb" />
+    <Content Include="node_modules\mongodb\node_modules\bson\build\Release\obj\bson\bson.obj" />
+    <Content Include="node_modules\mongodb\node_modules\bson\build\Release\obj\bson\bson.tlog\bson.lastbuildstate" />
+    <Content Include="node_modules\mongodb\node_modules\bson\build\Release\obj\bson\bson.tlog\bson.write.1u.tlog" />
+    <Content Include="node_modules\mongodb\node_modules\bson\build\Release\obj\bson\bson.tlog\cl.command.1.tlog" />
+    <Content Include="node_modules\mongodb\node_modules\bson\build\Release\obj\bson\bson.tlog\CL.read.1.tlog" />
+    <Content Include="node_modules\mongodb\node_modules\bson\build\Release\obj\bson\bson.tlog\CL.write.1.tlog" />
+    <Content Include="node_modules\mongodb\node_modules\bson\build\Release\obj\bson\bson.tlog\link.command.1.tlog" />
+    <Content Include="node_modules\mongodb\node_modules\bson\build\Release\obj\bson\bson.tlog\link.read.1.tlog" />
+    <Content Include="node_modules\mongodb\node_modules\bson\build\Release\obj\bson\bson.tlog\link.write.1.tlog" />
+    <Content Include="node_modules\mongodb\node_modules\bson\build\Release\obj\bson\vc120.pdb" />
+    <Content Include="node_modules\mongodb\node_modules\bson\ext\bson.cc" />
+    <Content Include="node_modules\mongodb\node_modules\bson\ext\bson.h" />
+    <Content Include="node_modules\mongodb\node_modules\bson\ext\Makefile" />
+    <Content Include="node_modules\mongodb\node_modules\bson\ext\win32\ia32\bson.node" />
+    <Content Include="node_modules\mongodb\node_modules\bson\ext\win32\x64\bson.node" />
+    <Content Include="node_modules\mongodb\node_modules\bson\ext\wscript" />
+    <Content Include="node_modules\mongodb\node_modules\bson\Makefile" />
+    <Content Include="node_modules\mongodb\node_modules\bson\node_modules\nan\.dntrc" />
+    <Content Include="node_modules\mongodb\node_modules\bson\node_modules\nan\build\config.gypi" />
+    <Content Include="node_modules\mongodb\node_modules\bson\node_modules\nan\LICENSE" />
+    <Content Include="node_modules\mongodb\node_modules\bson\node_modules\nan\nan.h" />
+    <Content Include="node_modules\mongodb\node_modules\bson\node_modules\nan\package.json" />
+    <Content Include="node_modules\mongodb\node_modules\bson\node_modules\nan\README.md" />
+    <Content Include="node_modules\mongodb\node_modules\bson\package.json" />
+    <Content Include="node_modules\mongodb\node_modules\bson\README.md" />
+    <Content Include="node_modules\mongodb\node_modules\bson\t" />
+    <Content Include="node_modules\mongodb\node_modules\bson\tools\jasmine-1.1.0\jasmine.css" />
+    <Content Include="node_modules\mongodb\node_modules\bson\tools\jasmine-1.1.0\jasmine_favicon.png" />
+    <Content Include="node_modules\mongodb\node_modules\bson\tools\jasmine-1.1.0\MIT.LICENSE" />
+    <Content Include="node_modules\mongodb\node_modules\bson\v8.log" />
+    <Content Include="node_modules\mongodb\node_modules\bson\v8.result" />
+    <Content Include="node_modules\mongodb\node_modules\kerberos\binding.gyp" />
+    <Content Include="node_modules\mongodb\node_modules\kerberos\builderror.log" />
+    <Content Include="node_modules\mongodb\node_modules\kerberos\build\config.gypi" />
+    <Content Include="node_modules\mongodb\node_modules\kerberos\build\kerberos.vcxproj" />
+    <Content Include="node_modules\mongodb\node_modules\kerberos\build\kerberos.vcxproj.filters" />
+    <Content Include="node_modules\mongodb\node_modules\kerberos\build\Release\kerberos.exp" />
+    <Content Include="node_modules\mongodb\node_modules\kerberos\build\Release\kerberos.lib" />
+    <Content Include="node_modules\mongodb\node_modules\kerberos\build\Release\kerberos.node" />
+    <Content Include="node_modules\mongodb\node_modules\kerberos\build\Release\kerberos.pdb" />
+    <Content Include="node_modules\mongodb\node_modules\kerberos\build\Release\obj\kerberos\base64.obj" />
+    <Content Include="node_modules\mongodb\node_modules\kerberos\build\Release\obj\kerberos\kerberos.obj" />
+    <Content Include="node_modules\mongodb\node_modules\kerberos\build\Release\obj\kerberos\kerberos.tlog\cl.command.1.tlog" />
+    <Content Include="node_modules\mongodb\node_modules\kerberos\build\Release\obj\kerberos\kerberos.tlog\CL.read.1.tlog" />
+    <Content Include="node_modules\mongodb\node_modules\kerberos\build\Release\obj\kerberos\kerberos.tlog\cl.write.1.tlog" />
+    <Content Include="node_modules\mongodb\node_modules\kerberos\build\Release\obj\kerberos\kerberos.tlog\kerberos.lastbuildstate" />
+    <Content Include="node_modules\mongodb\node_modules\kerberos\build\Release\obj\kerberos\kerberos.tlog\kerberos.write.1u.tlog" />
+    <Content Include="node_modules\mongodb\node_modules\kerberos\build\Release\obj\kerberos\kerberos.tlog\link.command.1.tlog" />
+    <Content Include="node_modules\mongodb\node_modules\kerberos\build\Release\obj\kerberos\kerberos.tlog\link.read.1.tlog" />
+    <Content Include="node_modules\mongodb\node_modules\kerberos\build\Release\obj\kerberos\kerberos.tlog\link.write.1.tlog" />
+    <Content Include="node_modules\mongodb\node_modules\kerberos\build\Release\obj\kerberos\kerberos_sspi.obj" />
+    <Content Include="node_modules\mongodb\node_modules\kerberos\build\Release\obj\kerberos\security_buffer.obj" />
+    <Content Include="node_modules\mongodb\node_modules\kerberos\build\Release\obj\kerberos\security_buffer_descriptor.obj" />
+    <Content Include="node_modules\mongodb\node_modules\kerberos\build\Release\obj\kerberos\security_context.obj" />
+    <Content Include="node_modules\mongodb\node_modules\kerberos\build\Release\obj\kerberos\security_credentials.obj" />
+    <Content Include="node_modules\mongodb\node_modules\kerberos\build\Release\obj\kerberos\vc120.pdb" />
+    <Content Include="node_modules\mongodb\node_modules\kerberos\build\Release\obj\kerberos\worker.obj" />
+    <Content Include="node_modules\mongodb\node_modules\kerberos\lib\base64.c" />
+    <Content Include="node_modules\mongodb\node_modules\kerberos\lib\base64.h" />
+    <Content Include="node_modules\mongodb\node_modules\kerberos\lib\kerberos.cc" />
+    <Content Include="node_modules\mongodb\node_modules\kerberos\lib\kerberos.h" />
+    <Content Include="node_modules\mongodb\node_modules\kerberos\lib\kerberosgss.c" />
+    <Content Include="node_modules\mongodb\node_modules\kerberos\lib\kerberosgss.h" />
+    <Content Include="node_modules\mongodb\node_modules\kerberos\lib\kerberos_context.cc" />
+    <Content Include="node_modules\mongodb\node_modules\kerberos\lib\kerberos_context.h" />
+    <Content Include="node_modules\mongodb\node_modules\kerberos\lib\win32\base64.c" />
+    <Content Include="node_modules\mongodb\node_modules\kerberos\lib\win32\base64.h" />
+    <Content Include="node_modules\mongodb\node_modules\kerberos\lib\win32\kerberos.cc" />
+    <Content Include="node_modules\mongodb\node_modules\kerberos\lib\win32\kerberos.h" />
+    <Content Include="node_modules\mongodb\node_modules\kerberos\lib\win32\kerberos_sspi.c" />
+    <Content Include="node_modules\mongodb\node_modules\kerberos\lib\win32\kerberos_sspi.h" />
+    <Content Include="node_modules\mongodb\node_modules\kerberos\lib\win32\worker.cc" />
+    <Content Include="node_modules\mongodb\node_modules\kerberos\lib\win32\worker.h" />
+    <Content Include="node_modules\mongodb\node_modules\kerberos\lib\win32\wrappers\security_buffer.cc" />
+    <Content Include="node_modules\mongodb\node_modules\kerberos\lib\win32\wrappers\security_buffer.h" />
+    <Content Include="node_modules\mongodb\node_modules\kerberos\lib\win32\wrappers\security_buffer_descriptor.cc" />
+    <Content Include="node_modules\mongodb\node_modules\kerberos\lib\win32\wrappers\security_buffer_descriptor.h" />
+    <Content Include="node_modules\mongodb\node_modules\kerberos\lib\win32\wrappers\security_context.cc" />
+    <Content Include="node_modules\mongodb\node_modules\kerberos\lib\win32\wrappers\security_context.h" />
+    <Content Include="node_modules\mongodb\node_modules\kerberos\lib\win32\wrappers\security_credentials.cc" />
+    <Content Include="node_modules\mongodb\node_modules\kerberos\lib\win32\wrappers\security_credentials.h" />
+    <Content Include="node_modules\mongodb\node_modules\kerberos\lib\worker.cc" />
+    <Content Include="node_modules\mongodb\node_modules\kerberos\lib\worker.h" />
+    <Content Include="node_modules\mongodb\node_modules\kerberos\LICENSE" />
+    <Content Include="node_modules\mongodb\node_modules\kerberos\package.json" />
+    <Content Include="node_modules\mongodb\node_modules\kerberos\README.md" />
+    <Content Include="node_modules\mongodb\node_modules\readable-stream\.npmignore" />
+    <Content Include="node_modules\mongodb\node_modules\readable-stream\LICENSE" />
+    <Content Include="node_modules\mongodb\node_modules\readable-stream\node_modules\core-util-is\float.patch" />
+    <Content Include="node_modules\mongodb\node_modules\readable-stream\node_modules\core-util-is\package.json" />
+    <Content Include="node_modules\mongodb\node_modules\readable-stream\node_modules\core-util-is\README.md" />
+    <Content Include="node_modules\mongodb\node_modules\readable-stream\node_modules\inherits\LICENSE" />
+    <Content Include="node_modules\mongodb\node_modules\readable-stream\node_modules\inherits\package.json" />
+    <Content Include="node_modules\mongodb\node_modules\readable-stream\node_modules\inherits\README.md" />
+    <Content Include="node_modules\mongodb\node_modules\readable-stream\node_modules\isarray\component.json" />
+    <Content Include="node_modules\mongodb\node_modules\readable-stream\node_modules\isarray\package.json" />
+    <Content Include="node_modules\mongodb\node_modules\readable-stream\node_modules\isarray\README.md" />
+    <Content Include="node_modules\mongodb\node_modules\readable-stream\node_modules\string_decoder\.npmignore" />
+    <Content Include="node_modules\mongodb\node_modules\readable-stream\node_modules\string_decoder\LICENSE" />
+    <Content Include="node_modules\mongodb\node_modules\readable-stream\node_modules\string_decoder\package.json" />
+    <Content Include="node_modules\mongodb\node_modules\readable-stream\node_modules\string_decoder\README.md" />
+    <Content Include="node_modules\mongodb\node_modules\readable-stream\package.json" />
+    <Content Include="node_modules\mongodb\node_modules\readable-stream\README.md" />
+    <Content Include="node_modules\mongodb\package.json" />
+    <Content Include="node_modules\mongodb\Readme.md" />
+    <Content Include="package.json" />
+    <Content Include="README.md" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config" />
+    <Content Include="bin\ChangeConfig.ps1" />
+    <Content Include="bin\download.ps1" />
+    <Content Include="bin\setup_web.cmd" />
+    <Content Include="bin\node.cmd" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="bin\" />
+    <Folder Include="lib\" />
+    <Folder Include="app\" />
+    <Folder Include="node_modules\" />
+    <Folder Include="node_modules\mongodb\" />
+    <Folder Include="node_modules\mongodb\lib\" />
+    <Folder Include="node_modules\mongodb\lib\mongodb\" />
+    <Folder Include="node_modules\mongodb\lib\mongodb\auth\" />
+    <Folder Include="node_modules\mongodb\lib\mongodb\collection\" />
+    <Folder Include="node_modules\mongodb\lib\mongodb\collection\batch\" />
+    <Folder Include="node_modules\mongodb\lib\mongodb\commands\" />
+    <Folder Include="node_modules\mongodb\lib\mongodb\connection\" />
+    <Folder Include="node_modules\mongodb\lib\mongodb\connection\repl_set\" />
+    <Folder Include="node_modules\mongodb\lib\mongodb\connection\repl_set\strategies\" />
+    <Folder Include="node_modules\mongodb\lib\mongodb\gridfs\" />
+    <Folder Include="node_modules\mongodb\lib\mongodb\responses\" />
+    <Folder Include="node_modules\mongodb\node_modules\" />
+    <Folder Include="node_modules\mongodb\node_modules\bson\" />
+    <Folder Include="node_modules\mongodb\node_modules\bson\browser_build\" />
+    <Folder Include="node_modules\mongodb\node_modules\bson\build\" />
+    <Folder Include="node_modules\mongodb\node_modules\bson\build\Release\" />
+    <Folder Include="node_modules\mongodb\node_modules\bson\build\Release\obj\" />
+    <Folder Include="node_modules\mongodb\node_modules\bson\build\Release\obj\bson\" />
+    <Folder Include="node_modules\mongodb\node_modules\bson\build\Release\obj\bson\bson.tlog\" />
+    <Folder Include="node_modules\mongodb\node_modules\bson\ext\" />
+    <Folder Include="node_modules\mongodb\node_modules\bson\ext\win32\" />
+    <Folder Include="node_modules\mongodb\node_modules\bson\ext\win32\ia32\" />
+    <Folder Include="node_modules\mongodb\node_modules\bson\ext\win32\x64\" />
+    <Folder Include="node_modules\mongodb\node_modules\bson\lib\" />
+    <Folder Include="node_modules\mongodb\node_modules\bson\lib\bson\" />
+    <Folder Include="node_modules\mongodb\node_modules\bson\node_modules\" />
+    <Folder Include="node_modules\mongodb\node_modules\bson\node_modules\nan\" />
+    <Folder Include="node_modules\mongodb\node_modules\bson\node_modules\nan\build\" />
+    <Folder Include="node_modules\mongodb\node_modules\bson\tools\" />
+    <Folder Include="node_modules\mongodb\node_modules\bson\tools\jasmine-1.1.0\" />
+    <Folder Include="node_modules\mongodb\node_modules\kerberos\" />
+    <Folder Include="node_modules\mongodb\node_modules\kerberos\build\" />
+    <Folder Include="node_modules\mongodb\node_modules\kerberos\build\Release\" />
+    <Folder Include="node_modules\mongodb\node_modules\kerberos\build\Release\obj\" />
+    <Folder Include="node_modules\mongodb\node_modules\kerberos\build\Release\obj\kerberos\" />
+    <Folder Include="node_modules\mongodb\node_modules\kerberos\build\Release\obj\kerberos\kerberos.tlog\" />
+    <Folder Include="node_modules\mongodb\node_modules\kerberos\lib\" />
+    <Folder Include="node_modules\mongodb\node_modules\kerberos\lib\auth_processes\" />
+    <Folder Include="node_modules\mongodb\node_modules\kerberos\lib\win32\" />
+    <Folder Include="node_modules\mongodb\node_modules\kerberos\lib\win32\wrappers\" />
+    <Folder Include="node_modules\mongodb\node_modules\kerberos\test\" />
+    <Folder Include="node_modules\mongodb\node_modules\kerberos\test\win32\" />
+    <Folder Include="node_modules\mongodb\node_modules\readable-stream\" />
+    <Folder Include="node_modules\mongodb\node_modules\readable-stream\lib\" />
+    <Folder Include="node_modules\mongodb\node_modules\readable-stream\node_modules\" />
+    <Folder Include="node_modules\mongodb\node_modules\readable-stream\node_modules\core-util-is\" />
+    <Folder Include="node_modules\mongodb\node_modules\readable-stream\node_modules\core-util-is\lib\" />
+    <Folder Include="node_modules\mongodb\node_modules\readable-stream\node_modules\inherits\" />
+    <Folder Include="node_modules\mongodb\node_modules\readable-stream\node_modules\isarray\" />
+    <Folder Include="node_modules\mongodb\node_modules\readable-stream\node_modules\isarray\build\" />
+    <Folder Include="node_modules\mongodb\node_modules\readable-stream\node_modules\string_decoder\" />
+    <Folder Include="Scripts\" />
+    <Folder Include="Scripts\typings\" />
+    <Folder Include="Scripts\typings\node\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="node_modules\mongodb\index.js" />
+    <Compile Include="node_modules\mongodb\lib\mongodb\admin.js" />
+    <Compile Include="node_modules\mongodb\lib\mongodb\aggregation_cursor.js" />
+    <Compile Include="node_modules\mongodb\lib\mongodb\auth\mongodb_cr.js" />
+    <Compile Include="node_modules\mongodb\lib\mongodb\auth\mongodb_gssapi.js" />
+    <Compile Include="node_modules\mongodb\lib\mongodb\auth\mongodb_plain.js" />
+    <Compile Include="node_modules\mongodb\lib\mongodb\auth\mongodb_sspi.js" />
+    <Compile Include="node_modules\mongodb\lib\mongodb\auth\mongodb_x509.js" />
+    <Compile Include="node_modules\mongodb\lib\mongodb\collection.js" />
+    <Compile Include="node_modules\mongodb\lib\mongodb\collection\aggregation.js" />
+    <Compile Include="node_modules\mongodb\lib\mongodb\collection\batch\common.js" />
+    <Compile Include="node_modules\mongodb\lib\mongodb\collection\batch\ordered.js" />
+    <Compile Include="node_modules\mongodb\lib\mongodb\collection\batch\unordered.js" />
+    <Compile Include="node_modules\mongodb\lib\mongodb\collection\commands.js" />
+    <Compile Include="node_modules\mongodb\lib\mongodb\collection\core.js" />
+    <Compile Include="node_modules\mongodb\lib\mongodb\collection\geo.js" />
+    <Compile Include="node_modules\mongodb\lib\mongodb\collection\index.js" />
+    <Compile Include="node_modules\mongodb\lib\mongodb\collection\query.js" />
+    <Compile Include="node_modules\mongodb\lib\mongodb\collection\shared.js" />
+    <Compile Include="node_modules\mongodb\lib\mongodb\commands\base_command.js" />
+    <Compile Include="node_modules\mongodb\lib\mongodb\commands\db_command.js" />
+    <Compile Include="node_modules\mongodb\lib\mongodb\commands\delete_command.js" />
+    <Compile Include="node_modules\mongodb\lib\mongodb\commands\get_more_command.js" />
+    <Compile Include="node_modules\mongodb\lib\mongodb\commands\insert_command.js" />
+    <Compile Include="node_modules\mongodb\lib\mongodb\commands\kill_cursor_command.js" />
+    <Compile Include="node_modules\mongodb\lib\mongodb\commands\query_command.js" />
+    <Compile Include="node_modules\mongodb\lib\mongodb\commands\update_command.js" />
+    <Compile Include="node_modules\mongodb\lib\mongodb\command_cursor.js" />
+    <Compile Include="node_modules\mongodb\lib\mongodb\connection\base.js" />
+    <Compile Include="node_modules\mongodb\lib\mongodb\connection\connection.js" />
+    <Compile Include="node_modules\mongodb\lib\mongodb\connection\connection_pool.js" />
+    <Compile Include="node_modules\mongodb\lib\mongodb\connection\connection_utils.js" />
+    <Compile Include="node_modules\mongodb\lib\mongodb\connection\mongos.js" />
+    <Compile Include="node_modules\mongodb\lib\mongodb\connection\read_preference.js" />
+    <Compile Include="node_modules\mongodb\lib\mongodb\connection\repl_set\ha.js" />
+    <Compile Include="node_modules\mongodb\lib\mongodb\connection\repl_set\options.js" />
+    <Compile Include="node_modules\mongodb\lib\mongodb\connection\repl_set\repl_set.js" />
+    <Compile Include="node_modules\mongodb\lib\mongodb\connection\repl_set\repl_set_state.js" />
+    <Compile Include="node_modules\mongodb\lib\mongodb\connection\repl_set\strategies\ping_strategy.js" />
+    <Compile Include="node_modules\mongodb\lib\mongodb\connection\repl_set\strategies\statistics_strategy.js" />
+    <Compile Include="node_modules\mongodb\lib\mongodb\connection\server.js" />
+    <Compile Include="node_modules\mongodb\lib\mongodb\connection\server_capabilities.js" />
+    <Compile Include="node_modules\mongodb\lib\mongodb\connection\url_parser.js" />
+    <Compile Include="node_modules\mongodb\lib\mongodb\cursor.js" />
+    <Compile Include="node_modules\mongodb\lib\mongodb\cursorstream.js" />
+    <Compile Include="node_modules\mongodb\lib\mongodb\db.js" />
+    <Compile Include="node_modules\mongodb\lib\mongodb\gridfs\chunk.js" />
+    <Compile Include="node_modules\mongodb\lib\mongodb\gridfs\grid.js" />
+    <Compile Include="node_modules\mongodb\lib\mongodb\gridfs\gridstore.js" />
+    <Compile Include="node_modules\mongodb\lib\mongodb\gridfs\readstream.js" />
+    <Compile Include="node_modules\mongodb\lib\mongodb\index.js" />
+    <Compile Include="node_modules\mongodb\lib\mongodb\mongo_client.js" />
+    <Compile Include="node_modules\mongodb\lib\mongodb\responses\mongo_reply.js" />
+    <Compile Include="node_modules\mongodb\lib\mongodb\scope.js" />
+    <Compile Include="node_modules\mongodb\lib\mongodb\utils.js" />
+    <Compile Include="node_modules\mongodb\node_modules\bson\browser_build\bson.js" />
+    <Compile Include="node_modules\mongodb\node_modules\bson\build_browser.js" />
+    <Compile Include="node_modules\mongodb\node_modules\bson\ext\index.js" />
+    <Compile Include="node_modules\mongodb\node_modules\bson\lib\bson\binary.js" />
+    <Compile Include="node_modules\mongodb\node_modules\bson\lib\bson\binary_parser.js" />
+    <Compile Include="node_modules\mongodb\node_modules\bson\lib\bson\bson.js" />
+    <Compile Include="node_modules\mongodb\node_modules\bson\lib\bson\bson_new.js" />
+    <Compile Include="node_modules\mongodb\node_modules\bson\lib\bson\code.js" />
+    <Compile Include="node_modules\mongodb\node_modules\bson\lib\bson\db_ref.js" />
+    <Compile Include="node_modules\mongodb\node_modules\bson\lib\bson\double.js" />
+    <Compile Include="node_modules\mongodb\node_modules\bson\lib\bson\float_parser.js" />
+    <Compile Include="node_modules\mongodb\node_modules\bson\lib\bson\index.js" />
+    <Compile Include="node_modules\mongodb\node_modules\bson\lib\bson\long.js" />
+    <Compile Include="node_modules\mongodb\node_modules\bson\lib\bson\max_key.js" />
+    <Compile Include="node_modules\mongodb\node_modules\bson\lib\bson\min_key.js" />
+    <Compile Include="node_modules\mongodb\node_modules\bson\lib\bson\objectid.js" />
+    <Compile Include="node_modules\mongodb\node_modules\bson\lib\bson\symbol.js" />
+    <Compile Include="node_modules\mongodb\node_modules\bson\lib\bson\timestamp.js" />
+    <Compile Include="node_modules\mongodb\node_modules\bson\node_modules\nan\include_dirs.js" />
+    <Compile Include="node_modules\mongodb\node_modules\bson\tools\gleak.js" />
+    <Compile Include="node_modules\mongodb\node_modules\bson\tools\jasmine-1.1.0\jasmine-html.js" />
+    <Compile Include="node_modules\mongodb\node_modules\bson\tools\jasmine-1.1.0\jasmine.js" />
+    <Compile Include="node_modules\mongodb\node_modules\kerberos\index.js" />
+    <Compile Include="node_modules\mongodb\node_modules\kerberos\lib\auth_processes\mongodb.js" />
+    <Compile Include="node_modules\mongodb\node_modules\kerberos\lib\kerberos.js" />
+    <Compile Include="node_modules\mongodb\node_modules\kerberos\lib\sspi.js" />
+    <Compile Include="node_modules\mongodb\node_modules\kerberos\lib\win32\wrappers\security_buffer.js" />
+    <Compile Include="node_modules\mongodb\node_modules\kerberos\lib\win32\wrappers\security_buffer_descriptor.js" />
+    <Compile Include="node_modules\mongodb\node_modules\kerberos\lib\win32\wrappers\security_context.js" />
+    <Compile Include="node_modules\mongodb\node_modules\kerberos\lib\win32\wrappers\security_credentials.js" />
+    <Compile Include="node_modules\mongodb\node_modules\kerberos\test\kerberos_tests.js" />
+    <Compile Include="node_modules\mongodb\node_modules\kerberos\test\kerberos_win32_test.js" />
+    <Compile Include="node_modules\mongodb\node_modules\kerberos\test\win32\security_buffer_descriptor_tests.js" />
+    <Compile Include="node_modules\mongodb\node_modules\kerberos\test\win32\security_buffer_tests.js" />
+    <Compile Include="node_modules\mongodb\node_modules\kerberos\test\win32\security_credentials_tests.js" />
+    <Compile Include="node_modules\mongodb\node_modules\readable-stream\duplex.js" />
+    <Compile Include="node_modules\mongodb\node_modules\readable-stream\lib\_stream_duplex.js" />
+    <Compile Include="node_modules\mongodb\node_modules\readable-stream\lib\_stream_passthrough.js" />
+    <Compile Include="node_modules\mongodb\node_modules\readable-stream\lib\_stream_readable.js" />
+    <Compile Include="node_modules\mongodb\node_modules\readable-stream\lib\_stream_transform.js" />
+    <Compile Include="node_modules\mongodb\node_modules\readable-stream\lib\_stream_writable.js" />
+    <Compile Include="node_modules\mongodb\node_modules\readable-stream\node_modules\core-util-is\lib\util.js" />
+    <Compile Include="node_modules\mongodb\node_modules\readable-stream\node_modules\core-util-is\util.js" />
+    <Compile Include="node_modules\mongodb\node_modules\readable-stream\node_modules\inherits\inherits.js" />
+    <Compile Include="node_modules\mongodb\node_modules\readable-stream\node_modules\inherits\inherits_browser.js" />
+    <Compile Include="node_modules\mongodb\node_modules\readable-stream\node_modules\inherits\test.js" />
+    <Compile Include="node_modules\mongodb\node_modules\readable-stream\node_modules\isarray\build\build.js" />
+    <Compile Include="node_modules\mongodb\node_modules\readable-stream\node_modules\isarray\index.js" />
+    <Compile Include="node_modules\mongodb\node_modules\readable-stream\node_modules\string_decoder\index.js" />
+    <Compile Include="node_modules\mongodb\node_modules\readable-stream\passthrough.js" />
+    <Compile Include="node_modules\mongodb\node_modules\readable-stream\readable.js" />
+    <Compile Include="node_modules\mongodb\node_modules\readable-stream\transform.js" />
+    <Compile Include="node_modules\mongodb\node_modules\readable-stream\writable.js" />
+  </ItemGroup>
+  <Import Project="$(VSToolsPath)\Node.js Tools\Microsoft.NodejsTools.targets" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>0</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:48022/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>True</UseCustomServer>
+          <CustomServerUrl>http://localhost:1337</CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}" User="">
+        <WebProjectProperties>
+          <StartPageUrl>
+          </StartPageUrl>
+          <StartAction>CurrentPage</StartAction>
+          <AspNetDebugging>True</AspNetDebugging>
+          <SilverlightDebugging>False</SilverlightDebugging>
+          <NativeDebugging>False</NativeDebugging>
+          <SQLDebugging>False</SQLDebugging>
+          <ExternalProgram>
+          </ExternalProgram>
+          <StartExternalURL>
+          </StartExternalURL>
+          <StartCmdLineArguments>
+          </StartCmdLineArguments>
+          <StartWorkingDirectory>
+          </StartWorkingDirectory>
+          <EnableENC>False</EnableENC>
+          <AlwaysStartWebServerOnDebug>False</AlwaysStartWebServerOnDebug>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

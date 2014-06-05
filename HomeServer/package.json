@@ -1,0 +1,13 @@
+{
+  "name": "HomeServer",
+  "version": "0.0.0",
+  "description": "HomeServer",
+  "main": "app.js",
+  "author": {
+    "name": "sheehamj",
+    "email": ""
+  },
+  "dependencies": {
+    "mongodb": "~1.4.5"
+  }
+}
