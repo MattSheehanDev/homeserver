@@ -1,0 +1,376 @@
+/************************************ Layout *****************************/
+/* Draw border and padding inside specified width. Normalizes element sizes */
+*,
+*:before,
+*:after {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+*::selection {
+  background: #D6EDFF;
+}
+/* Small screens */
+html {
+  font: 16px/1.618 "Segoe UI Light", "Segoe WP Light", "Segoe UI", "Segoe WP", Tahoma, Arial, sans-serif;
+  font-weight: 400;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+@media (max-width: 30rem) {
+  html {
+    font-size: 100%;
+  }
+}
+@media (min-width: 45rem) {
+  html {
+    font-size: 112.5%;
+  }
+}
+@media (min-width: 64rem) {
+  html {
+    font-size: 118.75%;
+  }
+}
+@media (min-width: 85rem) {
+  html {
+    font-size: 125%;
+  }
+}
+@media (min-width: 120rem) {
+  html {
+    font-size: 131.25%;
+  }
+}
+@media (min-width: 160rem) {
+  html {
+    font-size: 137.5%;
+  }
+}
+body {
+  margin: 0;
+  background-color: #eee;
+  color: #000;
+  font-size: 1rem;
+}
+h5 {
+  font-size: 1rem;
+}
+h4 {
+  font-size: 1.25rem;
+}
+h3 {
+  font-size: 1.5625rem;
+}
+h2 {
+  font-size: 1.953125rem;
+}
+h1 {
+  font-size: 2.44140625rem;
+}
+h4 {
+  font-weight: 200;
+}
+p {
+  display: inline;
+}
+/**************************************** Header ********************************/
+header {
+  background-color: #497bad;
+  text-align: left;
+}
+header .title {
+  border: 3px solid #fff;
+  color: #fff;
+  padding: .4rem .6rem;
+  display: inline-block;
+  font-weight: 500;
+  text-transform: uppercase;
+  margin-bottom: 2rem;
+  -moz-border-radius: 3px 3px 3px 3px;
+  -webkit-border-radius: 3px 3px 3px 3px;
+  border-radius: 3px 3px 3px 3px;
+}
+header p {
+  color: rgba(255, 255, 255, 0.7);
+  margin: 0 auto;
+}
+header a {
+  color: rgba(255, 255, 255, 0.9);
+}
+header ul {
+  -webkit-margin-before: 0em;
+  -webkit-margin-after: 0em;
+  -webkit-margin-start: 0px;
+  -webkit-margin-end: 0px;
+  -webkit-padding-start: 0px;
+}
+header li {
+  display: inline;
+  list-style: none;
+  text-align: center;
+  border-right: .1rem solid #fff;
+  padding-right: .2rem;
+}
+header li:last-of-type {
+  border-right: none;
+}
+.intro {
+  background-color: #3c454f;
+  margin: 0;
+}
+@media (min-width: 50rem) {
+  .intro {
+    margin: 0;
+  }
+}
+.intro a {
+  color: #fff;
+  text-decoration: none;
+}
+footer {
+  padding: 3rem;
+}
+/************************************** Section ***************************************/
+section {
+  border-top: 1px solid #eee;
+  text-align: left;
+  padding: 2rem 2rem;
+  margin-top: 2rem;
+}
+section:first-of-type {
+  border-top: none;
+}
+@media (min-width: 50rem) {
+  section {
+    padding: 4rem 4rem;
+  }
+}
+/******************************************* Grid ****************************************/
+.grid {
+  text-align: left;
+  /*&.container 
+    {
+        border: 2px;
+        padding: 0 1rem;
+    }*/
+  /*&.column
+    {
+        margin-bottom: 1rem;
+    }*/
+  /*@media (min-width: 50rem)
+    {
+        &.container
+        {
+            padding: 1rem 0 0 0;
+        }
+    }*/
+}
+/* Parent container */
+.container {
+  margin: 0 auto;
+  max-width: 60rem;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  -webkit-box-shadow: 0 0 30px 20px #dddddd;
+  -moz-box-shadow: 0 0 30px 20px #dddddd;
+  -o-box-shadow: 0 0 30px 20px #dddddd;
+  box-shadow: 0 0 30px 20px #dddddd;
+}
+/*@media screen and (min-width: 50rem)
+{
+    .container
+    {
+        width: 90%;
+    }
+}*/
+/*@media screen and (min-width: 720px)
+{
+    .container
+    {
+        width: 80%;
+    }
+}*/
+/* Columns */
+@media screen and (min-width: 50rem) {
+  .column {
+    /*margin-bottom: 1.5rem;*/
+    float: left;
+    margin: 0;
+    padding: 0 1rem;
+    /*padding-left: 1rem;*/
+    /*padding-right: 1rem;*/
+  }
+  .column.full {
+    width: 100%;
+  }
+  .column.three-fourths {
+    width: 74.95%;
+  }
+  .column.two-thirds {
+    width: 66.7%;
+  }
+  .column.half {
+    width: 50%;
+  }
+  .column.one-third {
+    width: 33.3%;
+  }
+  .column.one-fourth {
+    width: 24.95%;
+  }
+  .column.opposite {
+    float: right;
+  }
+}
+/* Rows */
+.row {
+  margin-bottom: .5rem;
+  padding: .5rem .5rem;
+}
+@media (min-width: 64rem) {
+  .row {
+    padding: 0 3rem;
+  }
+}
+/*******************************************Elements******************************************/
+hr {
+  border: 0;
+  border-top: 1px solid #ccc;
+  margin: 2rem auto;
+  width: 3rem;
+}
+@media (min-width: 50rem) {
+  hr {
+    margin: 2.5rem auto;
+  }
+}
+hr.small {
+  margin: 1.5rem auto;
+}
+img {
+  display: block;
+  height: auto;
+  margin: 0 auto 1.5rem auto;
+  width: 100%;
+}
+span {
+  display: inline-block;
+  /*padding: 0.2rem;*/
+  font-size: 0.9rem;
+  letter-spacing: 1px;
+  color: #BBC7CC;
+}
+@media (min-width: 50rem) {
+  span {
+    letter-spacing: 2px;
+  }
+}
+button {
+  color: #fff;
+  background-color: #497bad;
+  border: 1px solid #497bad;
+  cursor: pointer;
+  font-family: "Segoe UI Light";
+  -moz-border-radius: 3px 3px 3px 3px;
+  -webkit-border-radius: 3px 3px 3px 3px;
+  border-radius: 3px 3px 3px 3px;
+  -webkit-transition: background ease 0.2s;
+  -moz-transition: background ease 0.2s;
+  -o-transition: background ease 0.2s;
+  transition: background ease 0.2s;
+}
+button:hover {
+  background-color: #5183b6;
+}
+/******* Lists *******/
+ul {
+  text-align: left;
+  /*-webkit-margin-before: 0em;
+    -webkit-margin-after: 0em;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+    -webkit-padding-start: 0px;*/
+}
+@media screen and (min-width: 50rem) {
+  ul {
+    display: inline-block;
+  }
+}
+li {
+  list-style-type: none;
+  display: list-item;
+}
+/******************************************** Buttons **************************************/
+.button {
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+  border: none;
+  cursor: pointer;
+  display: block;
+  font-size: 1rem;
+  font-weight: 600;
+  text-decoration: none;
+  text-align: center;
+}
+@media (min-width: 50rem) {
+  .button {
+    display: inline-block;
+    font-size: 0.9rem;
+  }
+}
+.button:hover {
+  text-decoration: none;
+}
+.button.rectangle {
+  color: #fff;
+  background-color: #497bad;
+  padding: 0.7rem 1.5rem;
+  margin-bottom: 1rem;
+  /*margin: auto auto;*/
+  white-space: nowrap;
+  text-decoration: none;
+  width: 100%;
+  -moz-border-radius: 3px 3px 3px 3px;
+  -webkit-border-radius: 3px 3px 3px 3px;
+  border-radius: 3px 3px 3px 3px;
+  -webkit-transition: background ease 0.2s;
+  -moz-transition: background ease 0.2s;
+  -o-transition: background ease 0.2s;
+  transition: background ease 0.2s;
+}
+.button.rectangle:hover {
+  background: #5183b6;
+}
+.button.circle {
+  border: 3px solid #497bad;
+  height: 3.2rem;
+  width: 3.2rem;
+  vertical-align: middle;
+  line-height: 1.7rem;
+  margin: 0 auto 1rem auto;
+  -moz-border-radius: 50% 50% 50% 50%;
+  -webkit-border-radius: 50% 50% 50% 50%;
+  border-radius: 50% 50% 50% 50%;
+  -webkit-transition: border-color ease 0.5s;
+  -moz-transition: border-color ease 0.5s;
+  -o-transition: border-color ease 0.5s;
+  transition: border-color ease 0.5s;
+}
+.button.circle:hover {
+  border-color: #57a3e8;
+}
+/*******************************************Clearfix******************************************/
+.clearfix {
+  *zoom: 1;
+}
+.clearfix:before,
+.clearfix:after {
+  content: " ";
+  display: table;
+}
+.clearfix:after {
+  clear: both;
+}

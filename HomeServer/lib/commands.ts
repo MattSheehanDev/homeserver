@@ -1,79 +1,50 @@
 ﻿
 
-import net = require("http");
-import qs = require("querystring");
-
-
 export module network {
 
 
-    export enum action {
-        get,
-        set,
-        delete,
+    export enum cmdType {
+        cget,
+        cset,
+        cdelete,
+        cpage,
     }
 
 
-    export class commands {
+    export class command {
+        public type: cmdType;
 
-        public object: string;
+        constructor(type: cmdType) {
+            this.type = type;
+        }
+    };
+
+
+    export class getCommand extends command {
+
+        public obj: string;
         public id: string;
-        public params: Map<string, string>;
-        public verb: action;
-        
 
-        constructor(verb: action, obj: string, id: string, query?: string) {
+        constructor(obj: string, id: string) {
+            super(cmdType.cget);
 
-            this.verb = verb;
-            this.object = obj;
+            this.obj = obj;
             this.id = id;
-
-            if (query) {
-                this.params = qs.parse(query);
-            }
         }
+    }
 
 
+    export class pageCommand extends command {
 
-        public static parseHttp(req: net.ServerRequest) {
+        public mime: string;
+        public file: string;
 
-            var cmd: commands;
-            var query: string;
+        constructor(mime, file) {
+            super(cmdType.cpage);
 
-            var uri = req.url;
-
-            var delim = uri.indexOf("?");
-            if (delim != -1) {
-                query = uri.substr(delim+1, uri.length - delim);
-                uri = uri.substr(0, delim);
-            }
-
-            if (uri.charAt(0) == "/") {
-                uri = uri.slice(1, uri.length);
-            }
-            if (uri.charAt(uri.length - 1) != "/") {
-                uri += "/";
-            }
-
-            var parts = uri.split("/");
-            if (parts.length < 2) throw Error("Invalid Command");
-
-            var obj = parts[0];
-            var id = parts[1];
-
-            if (req.method == "GET") {
-                cmd = new commands(action.get, obj, id, query);
-            }
-            else if (req.method == "POST") {
-                cmd = new commands(action.set, obj, id, query);
-            }
-            else if (req.method == "DELETE") {
-                cmd = new commands(action.delete, obj, id);
-            }
-
-            return cmd;
+            this.mime = mime;
+            this.file = file;
         }
-
     }
 
 }

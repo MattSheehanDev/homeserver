@@ -44,6 +44,24 @@ export module network {
 
                 self.config = JSON.parse(self.json);
 
+                var save = false;
+
+                if (!self.config.http) {
+                    self.config.http = new Object();
+                    self.config.http.address = "localhost:8080";
+                    save = true;
+                }
+                if (!self.config.database) {
+                    self.config.database = new Object();
+                    self.config.database.name = "homeserver";
+                    self.config.database.address = "localhost:27017";
+                    save = true;
+                }
+
+                if (save) {
+                    self.save();
+                }
+
                 self.emit("read", self.config);
 
             });
