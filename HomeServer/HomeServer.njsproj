@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">11.0</VisualStudioVersion>
@@ -164,9 +164,6 @@
     <Content Include="node_modules\mongodb\package.json" />
     <Content Include="node_modules\mongodb\Readme.md" />
     <Content Include="package.json" />
-    <Content Include="portal\content\imports\grid.less" />
-    <Content Include="portal\content\main.less" />
-    <Content Include="portal\index.html" />
     <Content Include="README.md" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config" />
@@ -232,9 +229,6 @@
     <Folder Include="node_modules\mongodb\node_modules\readable-stream\node_modules\isarray\" />
     <Folder Include="node_modules\mongodb\node_modules\readable-stream\node_modules\isarray\build\" />
     <Folder Include="node_modules\mongodb\node_modules\readable-stream\node_modules\string_decoder\" />
-    <Folder Include="portal\" />
-    <Folder Include="portal\content\" />
-    <Folder Include="portal\content\imports\" />
     <Folder Include="Scripts\" />
     <Folder Include="Scripts\typings\" />
     <Folder Include="Scripts\typings\node\" />

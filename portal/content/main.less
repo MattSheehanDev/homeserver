@@ -1,0 +1,201 @@
+﻿
+
+@import "imports/grid.less";
+
+
+.info
+{
+    height: 100%;
+    background: #fff;
+}
+
+
+.controls
+{
+    margin: 0;
+    padding: 0;
+    
+    background-color: @navyBlue;
+
+
+    .menu
+    {
+        .menuItem
+        {
+            #utilities > .transition(background-color, ease, 0.2s);
+
+            cursor: pointer;
+            height: 75px;
+            color: #fff;
+
+            &:hover
+            {
+                background-color: @lightBlue;
+            }
+
+            img
+            {
+                padding-top: .75rem;
+                width: 2rem;
+                float: left;
+                vertical-align: middle;
+            }
+
+            p
+            {
+                vertical-align: middle;
+                float: left;
+                padding-left: 1rem;
+                font-size: 14px;
+
+                &:first-of-type
+                {
+                    text-transform: uppercase;
+                    font-weight: bold;
+                    margin-top: 15px;
+                }
+            }
+        }
+    }
+
+
+    @media (min-width: 50rem) 
+    {
+        & 
+        {
+            height: 100%;
+        }
+    }
+}
+
+
+
+.noSmall {
+    @media(max-width: 50rem) {
+        display: none;
+   }
+}
+
+.mobile {
+    @media(min-width: 50rem) {
+        display: none;
+    }
+}
+
+
+.file
+{
+    p
+    {
+        padding: 0;
+        margin: 0;
+        font-size: 12px;
+        font-weight: bold;
+        display: inline;
+    }
+}
+
+
+.messageBtn
+{
+    background: #3c454f;
+    color: #fff;
+    border: #fff 1px solid;
+
+    &:hover
+    {
+        background: #fff;
+        color: #3c454f;
+    }
+}
+
+
+
+.list 
+{
+    &.center
+    {
+        text-align: center;
+    }
+
+    &.left
+    {
+        text-align: left;
+    }
+
+    &.right
+    {
+        text-align: right;
+    }
+
+    a
+    {
+        text-decoration: none;
+        display: inline;
+    }
+    
+    .title
+    {
+        color: @lightBlue;
+        cursor: pointer;
+
+        #utilities > .transition(background-color, ease, 0.05s);
+
+        &.dark
+        {
+            color: @navyBlueHover;
+        }
+
+        &:hover
+        {
+            background-color: @lightBlue;
+            color: #fff;
+        }
+    }
+
+    .child
+    {
+        color: #000;
+
+        &:hover
+        {
+            color: @lightBlue;
+        }
+    }
+
+}
+
+
+.help 
+{
+    
+    float: right;
+    margin-top: 15px;
+    font-size: 30px;
+    text-align: center;
+
+    div
+    {
+        margin: 10px;
+    }
+}
+
+
+.select 
+{
+    border: solid #000 2px;
+    height: 10rem;
+    overflow: auto;
+    padding: 0;
+
+    &.large
+    {
+        height: 15rem;
+    }
+}
+
+
+label {
+    display: inline-block;
+    width: 10rem;
+}

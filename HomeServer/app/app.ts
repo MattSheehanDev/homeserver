@@ -9,7 +9,7 @@
 import net = require("http");
 
 import fs = require("fs");
-import less = require("less");
+//import less = require("less");
 
 
 import config = require("../lib/config");
@@ -32,19 +32,19 @@ export module network {
         constructor() {
 
             // Initially parse less and save css
-            var parser: less.Parser = new less.Parser({
-                paths: [".", "./portal/content/imports/"],
-            });
+            //var parser: less.Parser = new less.Parser({
+            //    paths: [".", "./portal/content/", "./portal/content/imports/"],
+            //});
 
-            var file = fs.readFileSync("./portal/content/main.less");
+            //var file = fs.readFileSync("./portal/content/main.less");
             //less.render(file.toString(), function (err, css) {
             //    fs.writeFileSync("./portal/content/main.css", css);
             //});
                 
-            parser.parse(file.toString(), function (err, tree) {
-                var css = tree.toCSS();
-                fs.writeFileSync("./portal/content/main.css", css);
-            });
+            //parser.parse(file.toString(), function (err, tree) {
+            //    var css = tree.toCSS();
+            //    fs.writeFileSync("./portal/content/main.css", css);
+            //});
 
             //var dir = __dirname;
             this.configuration = new config.network.configuration(__dirname);
@@ -64,7 +64,7 @@ export module network {
                             filestream.on("error", function (err) {
                                 res.writeHead(500);
                                 res.end();
-                                return;
+                                 return;
                             });
 
                             res.writeHead(200, { "Content-Type": cmd.mime });

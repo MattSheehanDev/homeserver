@@ -1,0 +1,69 @@
+﻿<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+
+    <link href="../content/main.css" type="text/css" rel="stylesheet" />
+
+    <meta charset="utf-8" />
+    <title>Home Server</title>
+
+</head>
+<body>
+
+    <div class="grid">
+        <div class="container clearfix">
+
+            <!-- Header -->
+            <div class="column full intro clearfix">
+                <a style="float: left" href="/">
+                    <h5>Server Portal</h5>
+                </a>
+                <a class="button circle help" style="margin-top: 15px" href="/services.html" target="_blank">
+                    <div>?</div>
+                </a>
+            </div>
+
+
+            <!-- Menu -->
+            <div class="column one-fourth controls clearfix">
+                <div class="menu">
+                    <div class="menuList">
+                        <div class="menuItem column full">
+                            <img src="../images/database.png" />
+                            <p class="column half">Test</p>
+                            <p class="column half noSmall">0</p>
+                        </div>
+                        <div class="menuItem column full">
+                            <img src="../images/server.png" />
+                            <p class="column half">Test</p>
+                            <p class="column half noSmall">0</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="column three-fourths info">
+
+            </div>
+
+
+        </div>
+    </div>
+
+
+
+    <script src="//ajax.aspnetcdn.com/ajax/jQuery/jquery-2.1.0.min.js"></script>
+    <script src="//ajax.aspnetcdn.com/ajax/knockout/knockout-3.0.0.js"></script>
+    <script src="../scripts/main.js"></script>
+
+    <script>
+        $(function () {
+            control.homePortal = new control.portal();
+        });
+    </script>
+
+
+</body>
+</html>

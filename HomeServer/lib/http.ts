@@ -39,6 +39,8 @@ export module network {
                 "html": "text/html",
                 "css": "text/css",
                 "js": "application/javascript",
+                "png": "image/png",
+                "svg": "image/svg+xml",
             };
 
         }
@@ -50,13 +52,13 @@ export module network {
 
             if (req.method == "GET") {
                 if (u.pathname == "/") {
-                    u.pathname = "index.html";
+                    u.pathname = "views/index.html";
                 }
 
                 var ext = path.extname(u.pathname);
                 if (ext != "") {
                     var mime = this.mime[ext.split(".")[1]];
-                    var dir = path.join(process.cwd(), "/portal");
+                    var dir = path.join(process.cwd(), "/portal/");
                     var file = path.join(dir, u.pathname);
                     cmd = new command.network.pageCommand(mime, file);
                 }

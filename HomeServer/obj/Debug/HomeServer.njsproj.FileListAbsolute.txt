@@ -227,9 +227,6 @@ C:\Users\sheehamj\Documents\Visual Studio 2013\Projects\HomeServer\HomeServer\ob
 C:\Users\sheehamj\Documents\Visual Studio 2013\Projects\HomeServer\HomeServer\obj\Debug\node_modules\mongodb\package.json
 C:\Users\sheehamj\Documents\Visual Studio 2013\Projects\HomeServer\HomeServer\obj\Debug\node_modules\mongodb\Readme.md
 C:\Users\sheehamj\Documents\Visual Studio 2013\Projects\HomeServer\HomeServer\obj\Debug\package.json
-C:\Users\sheehamj\Documents\Visual Studio 2013\Projects\HomeServer\HomeServer\obj\Debug\portal\content\imports\grid.less
-C:\Users\sheehamj\Documents\Visual Studio 2013\Projects\HomeServer\HomeServer\obj\Debug\portal\content\main.less
-C:\Users\sheehamj\Documents\Visual Studio 2013\Projects\HomeServer\HomeServer\obj\Debug\portal\index.html
 C:\Users\sheehamj\Documents\Visual Studio 2013\Projects\HomeServer\HomeServer\obj\Debug\README.md
 C:\Users\sheehamj\Documents\Visual Studio 2013\Projects\HomeServer\HomeServer\obj\Debug\Web.config
 C:\Users\sheehamj\Documents\Visual Studio 2013\Projects\HomeServer\HomeServer\obj\Debug\Web.Debug.config
@@ -1090,3 +1087,4 @@ C:\Users\sheehamj\Documents\Visual Studio 2013\Projects\HomeServer\HomeServer\ob
 C:\Users\sheehamj\Documents\Visual Studio 2013\Projects\HomeServer\HomeServer\obj\Debug\node_modules\mongodb\node_modules\bson\build\binding.sln
 C:\Users\sheehamj\Documents\Visual Studio 2013\Projects\HomeServer\HomeServer\obj\Debug\node_modules\mongodb\node_modules\kerberos\build\binding.sln
 C:\Users\sheehamj\Documents\Visual Studio 2013\Projects\HomeServer\HomeServer\obj\Debug\bin\Microsoft.NodejsTools.WebRole.dll
+C:\Users\sheehamj\Documents\Visual Studio 2013\Projects\HomeServer\HomeServer\obj\Debug\HomeServer.njsprojResolveAssemblyReference.cache

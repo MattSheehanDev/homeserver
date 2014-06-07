@@ -1,4 +1,5 @@
 ﻿
+
 @navyBlue: #497bad;
 @navyBlueHover: #5183b6;
 @lightBlue: #57A3E8;
@@ -31,6 +32,8 @@
         box-shadow: @arguments; 
     }
 }
+
+
 
 
 /************************************ Layout *****************************/
@@ -443,24 +446,6 @@ span
 }
 
 
-button
-{
-    color: #fff;
-    background-color: @navyBlue;
-    border: 1px solid @navyBlue;
-    cursor: pointer;
-    font-family: "Segoe UI Light";
-
-    #utilities > .border-radius(3px, 3px, 3px, 3px);
-    #utilities > .transition(background, ease, 0.2s);
-
-    &:hover
-    {
-        background-color: @navyBlueHover;
-    }
-}
-
-
 
 /******* Lists *******/
 
@@ -468,13 +453,14 @@ ul
 {
     text-align: left;
 
-    /*-webkit-margin-before: 0em;
+    -webkit-margin-before: 0em;
     -webkit-margin-after: 0em;
     -webkit-margin-start: 0px;
     -webkit-margin-end: 0px;
-    -webkit-padding-start: 0px;*/
+    -webkit-padding-start: 0px;
     
-    //margin-left: -25px;
+    margin-left: -25px;
+
 
     @media screen and (min-width: 50rem)
     {
@@ -488,7 +474,7 @@ ul
 
 li
 {
-    list-style-type: none;
+    list-style: none;
     display: list-item;
 }
 
@@ -563,6 +549,207 @@ li
     }
 
 }
+
+
+
+
+
+
+
+.controls
+{
+    margin: 0;
+    padding: 0;
+    
+    background-color: @navyBlue;
+
+    @media (min-width: 50rem) 
+    {
+        & 
+        {
+            height: 100%;
+        }
+    }
+}
+
+.info
+{
+    height: 100%;
+    background: #fff;
+}
+
+
+
+.item 
+{
+    /*background-color: @navyBlue;
+
+    @media (min-width: 50rem) 
+    {
+        & 
+        {
+            height: 100%;
+        }
+    }*/
+
+    p
+    {
+        vertical-align: middle;
+    }
+
+    img
+    {
+        padding-top: 1rem;
+        width: 2rem;
+        float: left;
+        vertical-align: middle;
+    }
+
+    a 
+    {
+        text-decoration: none;
+        color: #fff;
+    }
+
+    div
+    {
+        #utilities > .transition(background-color, ease, 0.2s);
+
+        height: 75px;
+
+
+        &:hover
+        {
+            background-color: @lightBlue;
+        }
+    }
+
+}
+
+
+.file
+{
+    p
+    {
+        padding: 0;
+        margin: 0;
+        font-size: 12px;
+        font-weight: bold;
+        display: inline;
+    }
+}
+
+
+.messageBtn
+{
+    background: #3c454f;
+    color: #fff;
+    border: #fff 1px solid;
+
+    &:hover
+    {
+        background: #fff;
+        color: #3c454f;
+    }
+}
+
+
+
+.list 
+{
+    &.center
+    {
+        text-align: center;
+    }
+
+    &.left
+    {
+        text-align: left;
+    }
+
+    &.right
+    {
+        text-align: right;
+    }
+
+    a
+    {
+        text-decoration: none;
+        display: inline;
+    }
+    
+    .title
+    {
+        color: @lightBlue;
+
+        #utilities > .transition(background-color, ease, 0.05s);
+
+        &:hover
+        {
+            background-color: @lightBlue;
+            color: #fff;
+        }
+    }
+
+    .child
+    {
+        color: #000;
+
+        &:hover
+        {
+            color: @lightBlue;
+        }
+    }
+
+}
+    
+
+.select 
+{
+    border: solid #000 2px;
+    height: 10rem;
+    overflow: auto;
+    padding: 0;
+
+    &.large
+    {
+        height: 15rem;
+    }
+}
+
+
+.controlLabel {
+    float: left;
+    padding-left: 1rem;
+}
+
+label {
+    display: inline-block;
+    width: 10rem;
+}
+
+
+/*.generateTree(@n, @i: 1) when (@i =< @n)
+{
+    .tree@{i}
+    {
+        border-left: ~"@{i}rem";
+        color: @navyBlueHover;
+
+        &:hover
+        {
+            background-color: @navyBlue;
+            color: #fff;
+        }
+    }
+
+    .generateHeaders(@n, @i + 1);
+}
+
+.generateTree(5);*/
+
+
+
 
 
 
