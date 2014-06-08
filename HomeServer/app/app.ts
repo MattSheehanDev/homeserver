@@ -55,29 +55,44 @@ export module network {
                 self.server = new http.network.http(config.http);
                 self.server.run((req: net.ServerRequest, res: net.ServerResponse) => {
 
-                    var cmd: any = self.server.parse(req);
+                    req.on("command", function (cmd: any) {
+                        switch (cmd.type) {
+                            case command.network.cmdType.cpage: {
+                                var filestream = fs.createReadStream(cmd.file);
 
-                    switch (cmd.type) {
-                        case command.network.cmdType.cpage: {
-                            var filestream = fs.createReadStream(cmd.file);
+                                filestream.on("error", function (err) {
+                                    res.writeHead(500);
+                                    res.end();
+                                    return;
+                                });
 
-                            filestream.on("error", function (err) {
-                                res.writeHead(500);
-                                res.end();
-                                 return;
-                            });
-
-                            res.writeHead(200, { "Content-Type": cmd.mime });
-                            filestream.pipe(res);
-                            break;
+                                res.writeHead(200, { "Content-Type": cmd.mime });
+                                filestream.pipe(res);
+                                break;
+                            }
+                            case command.network.cmdType.cget: {
+                                var result = self.configuration.retrieve(cmd.obj, cmd.id);
+                                res.writeHead(result.code, { "Content-Type": "text/plain" });
+                                res.end(result.data);
+                                break;
+                            }
+                            case command.network.cmdType.cset: {
+                                var result = self.configuration.update(cmd.obj, cmd.id, cmd.params);
+                                res.writeHead(result.code)
+                                res.end(); 
+                                break;
+                            }
+                            case command.network.cmdType.cerror: {
+                                res.writeHead(cmd.code);
+                                res.end(cmd.error);
+                                break;
+                            }
                         }
-                        case command.network.cmdType.cget: {
-                            var result = self.configuration.retrieve(cmd.obj, cmd.id);
-                            res.writeHead(result.code, { "Content-Type": "text/plain" });
-                            res.end(result.data);
-                            break;
-                        }
-                    }
+                    });
+
+                    self.server.parse(req);
+
+
 
                     //if (uri.pathname == "/") {
 

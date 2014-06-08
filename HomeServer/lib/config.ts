@@ -69,7 +69,7 @@ export module network {
 
         public save() {
             var self = this;
-            fs.writeFile(this.path, JSON.stringify(this.config), function (err) {
+            fs.writeFile(this.path, JSON.stringify(this.config, null, 4), function (err) {
 
 
             });
@@ -91,26 +91,34 @@ export module network {
             return res;
         }
 
-        public update(object: string, id: string, params: Map<string, string>) {
+        public update(object: string, id: string, params: any) {
             var res: result;
 
+            var save = false;
             if (object == "http") {
-                if (params.has("address")) {
+                if (params["address"]) {
                     this.config.http.address = params["address"];
+                    save = true;
                 }
                 res = new result(200);
             }
             else if (object == "database") {
-                if (params.has("name")) {
+                if (params["name"]) {
                     this.config.database.name = params["name"];
+                    save = true;
                 }
-                else if (params.has("address")) {
+                if (params["address"]) {
                     this.config.database.address = params["address"];
+                    save = true;
                 }
-                res = new result(200);
+                res = new result(200, this.config);
             }
             else {
                 res = new result(500, "Invalid Command");
+            }
+
+            if (save) {
+                this.save();
             }
 
             return res;
@@ -125,10 +133,10 @@ export module network {
 
     export class result {
 
-        public code;
-        public data;
+        public code: number;
+        public data: any;
 
-        constructor(code, data = "{}") {
+        constructor(code, data = null) {
             this.code = code;
             this.data = data;
         }

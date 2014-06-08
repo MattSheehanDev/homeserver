@@ -6,7 +6,9 @@ import command = require("./commands");
 
 import net = require("http");
 import url = require("url");
+import qs = require("querystring");
 import path = require("path");
+import event = require("events");
 
 
 
@@ -22,7 +24,7 @@ export module network {
         public mime: any;
 
         constructor(json: any) {
-            
+
             if (json.address) {
 
                 var address: string = json.address;
@@ -46,8 +48,8 @@ export module network {
         }
 
 
-        public parse(req: net.ServerRequest): command.network.command {
-            var cmd: command.network.command;
+        public parse(req: net.ServerRequest) {
+            var cmd: any;
             var u = url.parse(req.url);
 
             if (req.method == "GET") {
@@ -61,25 +63,49 @@ export module network {
                     var dir = path.join(process.cwd(), "/portal/");
                     var file = path.join(dir, u.pathname);
                     cmd = new command.network.pageCommand(mime, file);
+                    req.emit("command", cmd);
                 }
                 else {
-                    if (u.pathname.charAt(0) == "/") {
-                        u.pathname = u.pathname.slice(1, u.pathname.length);
-                    }
-                    if (u.pathname.charAt(u.pathname.length - 1) != "/") {
-                        u.pathname += "/";
-                    }
-
-                    var parts = u.pathname.split("/");
-
-                    var obj = parts[0];
-                    var id = parts[1];
-
-                    cmd = new command.network.getCommand(obj, id);
+                    var parsed: any = this.parseObjId(u.pathname);
+                    cmd = new command.network.getCommand(parsed.obj, parsed.id);
+                    req.emit("command", cmd);
                 }
             }
+            else if (req.method == "POST") {
+                var parsed: any = this.parseObjId(u.pathname);
+                cmd = new command.network.postCommand(parsed.obj, parsed.id);
 
-            return cmd;
+                req.on("data", function (data) {
+                    var part = data.toString();
+                    cmd.body += part;
+                });
+
+                req.on("end", function () {
+                    cmd.params = qs.parse(cmd.body);
+                    req.emit("command", cmd);
+                });
+            }
+            else {
+                req.emit("command", new command.network.errorCommand(500, "Invalid Command"));
+            }
+
+            //return cmd;
+        }
+
+        public parseObjId(str: string) {
+            if (str.charAt(0) == "/") {
+                str = str.slice(1, str.length);
+            }
+            if (str.charAt(str.length - 1) != "/") {
+                str += "/";
+            }
+
+            var parts = str.split("/");
+
+            var obj = parts[0];
+            var id = parts[1];
+
+            return { obj: obj, id: id };
         }
 
         public run(onHttp: (req: net.ServerRequest, res: net.ServerResponse) => void) {

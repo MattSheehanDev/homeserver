@@ -71,6 +71,8 @@
   <ItemGroup>
     <Content Include="images\database.png" />
     <Content Include="images\database.svg" />
+    <Content Include="images\magnifier.png" />
+    <Content Include="images\magnifier.svg" />
     <Content Include="images\server.png" />
     <Content Include="images\server.svg" />
     <Content Include="views\index.html" />
@@ -82,9 +84,11 @@
   <ItemGroup />
   <ItemGroup>
     <TypeScriptCompile Include="scripts\api.ts" />
-    <TypeScriptCompile Include="scripts\options.ts" />
+    <TypeScriptCompile Include="scripts\basecontrol.ts" />
+    <TypeScriptCompile Include="scripts\databasecontrol.ts" />
+    <TypeScriptCompile Include="scripts\elements.ts" />
     <TypeScriptCompile Include="scripts\portal.ts" />
-    <TypeScriptCompile Include="scripts\server.ts" />
+    <TypeScriptCompile Include="scripts\servercontrol.ts" />
     <TypeScriptCompile Include="scripts\typings\jquery.d.ts" />
     <TypeScriptCompile Include="scripts\typings\knockout.d.ts" />
   </ItemGroup>
