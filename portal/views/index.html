@@ -84,6 +84,29 @@
                     </div>
                 </section>
 
+                <section class="control" data-bind="with: log, fadeVisible: $root.control() == log">
+                    <div class="row clearfix">
+                        <div data-bind="template: { name: 'controlHeader', data: $data }"></div>
+                    </div>
+                    <div class="row clearfix">
+                        <h4>Properties</h4>
+                        <div class="column three-fourths">
+                            <div class="column full">
+                                <label>Logging ON: </label><input data-bind="value: logging, valueUpdate: 'afterkeydown'" />
+                            </div>
+                            <div class="column full">
+                                <label>IP: </label><input data-bind="value: ip, valueUpdate: 'afterkeydown'" />
+                            </div>
+                            <div class="column full">
+                                <label>Port: </label><input data-bind="value: port, valueUpdate: 'afterkeydown'" />
+                            </div>
+                        </div>
+                        <div class="one-fourth">
+                            <a class="button rectangle" data-bind="click: save">Save</a>
+                        </div>
+                    </div>
+                </section>
+
             </div>
 
 

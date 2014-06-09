@@ -11,16 +11,12 @@ export module app {
 
         public db: database.network.database;
 
-        constructor(address: string) {
+        constructor(config: any) {
 
-            this.db = new database.network.database("home", address);
+            this.db = new database.network.database(config.name, config.address);
 
             this.db.on('connect', function () {
 
-                //var deviceSchema = new database.network.schema({
-                //    id: Number,
-                //    name: String,
-                //});
                 var devices: database.network.collection = this.db.collection("devices");
 
                 devices.on('error', function (err) {
@@ -31,7 +27,7 @@ export module app {
             });
 
             this.db.on('error', function (err) {
-
+                console.log(err);
             });
 
             this.db.on('close', function (result) {

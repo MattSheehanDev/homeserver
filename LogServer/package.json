@@ -1,0 +1,13 @@
+{
+  "name": "LogServer",
+  "version": "0.0.0",
+  "description": "LogServer",
+  "main": "main.js",
+  "author": {
+    "name": "sheehamj",
+    "email": ""
+  },
+  "dependencies": {
+    "mongodb": "~1.4.5"
+  }
+}

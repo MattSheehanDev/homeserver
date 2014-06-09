@@ -22,7 +22,7 @@ module control {
             this.port = ko.observable<number>();
 
             var self = this;
-            this.address = ko.computed(function () {
+            this.address = ko.computed<string>(function () {
                 return self.ip() + ":" + self.port();
             });
 

@@ -28,7 +28,11 @@ export module network {
             this.ip = parts[0];
             this.port = parseInt(parts[1]);
 
-            this.db = new mongodb.Db(name, new mongodb.Server(this.ip, this.port, { auto_reconnect: true }));
+            var options: mongodb.DbCreateOptions = {
+                w: "majority",
+            }
+
+            this.db = new mongodb.Db(name, new mongodb.Server(this.ip, this.port, { auto_reconnect: true }), options);
             this.open();
         }
 
@@ -62,12 +66,15 @@ export module network {
         }
 
 
-        public collection(name: string) {
+        public createCollection(name: string) {
+            var self = this;
+            this.db.createCollection(name, function (err, col: mongodb.Collection) {
+                if (err) {
+                    self.emit("error", err);
+                }
 
-            var c: collection = new collection(name, this.db.collection(name));
-            return c;
-
-            //this.collections[name] = c;
+                self.emit("collection", new collection(name, col));
+            });
         }
 
     }
@@ -76,9 +83,8 @@ export module network {
 
     export class collection extends event.EventEmitter {
 
-
-        public collection: mongodb.Collection;
         public name: string;
+        public collection: mongodb.Collection;
 
 
         constructor(name: string, c: mongodb.Collection) {

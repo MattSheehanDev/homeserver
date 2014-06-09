@@ -8,6 +8,7 @@ import net = require("http");
 import url = require("url");
 import qs = require("querystring");
 import path = require("path");
+
 import event = require("events");
 
 
@@ -88,8 +89,6 @@ export module network {
             else {
                 req.emit("command", new command.network.errorCommand(500, "Invalid Command"));
             }
-
-            //return cmd;
         }
 
         public parseObjId(str: string) {
@@ -112,6 +111,60 @@ export module network {
 
             this.server = net.createServer(onHttp);
             this.server.listen(this.port, this.ip);
+        }
+
+    }
+
+
+
+    export class httpRequest extends event.EventEmitter {
+
+        public host: string;
+        public port: number;
+        public path: string;
+
+        public data: string;
+
+        public req: net.ClientRequest;
+
+        constructor(host: string, port: number) {
+            super();
+
+            this.host = host;
+            this.port = port;
+            this.data = "";
+
+            var self = this;
+            this.req.on("error", function (err) {
+                self.emit("error", err);
+            });
+        }
+
+
+        public connect(path: string, method: string) {
+            var self = this;
+            this.req = net.request({
+                hostname: this.host,
+                port: this.port,
+                path: path,
+                method: method
+            }, function (res: net.ClientResponse) {
+                res.on("data", function (data) {
+                    self.data += data.toString();
+                });
+
+                res.on("end", function () {
+                    self.emit("response", res);
+                });
+            });
+        }
+
+        public write(data: string) {
+            this.req.write(data);
+        }
+
+        public end() {
+            this.req.end();
         }
 
     }

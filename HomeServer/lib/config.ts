@@ -57,6 +57,12 @@ export module network {
                     self.config.database.address = "localhost:27017";
                     save = true;
                 }
+                if (!self.config.log) {
+                    self.config.log = new Object();
+                    self.config.log.address = "localhost:4040";
+                    self.config.log.logging = true;
+                    save = true;
+                }
 
                 if (save) {
                     self.save();
@@ -83,6 +89,9 @@ export module network {
             }
             else if (object == "database") {
                 res = new result(200, JSON.stringify(this.config.database));
+            }
+            else if (object == "log") {
+                res = new result(200, JSON.stringify(this.config.log));
             }
             else {
                 res = new result(500, "Invalid Command");
@@ -111,7 +120,17 @@ export module network {
                     this.config.database.address = params["address"];
                     save = true;
                 }
-                res = new result(200, this.config);
+                res = new result(200);
+            }
+            else if (object == "log") {
+                if (params["address"]) {
+                    this.config.log.address = params["address"];
+                    save = true;
+                }
+                if (params["logging"]) {
+                    this.config.log.logging = params["logging"];
+                    save = true;
+                }
             }
             else {
                 res = new result(500, "Invalid Command");
