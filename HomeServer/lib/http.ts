@@ -24,17 +24,18 @@ export module network {
 
         public mime: any;
 
-        constructor(json: any) {
+        constructor(config: any) {
 
-            if (json.address) {
+            if (config.address) {
 
-                var address: string = json.address;
+                var address: string = config.address;
                 var parts = address.split(":");
 
-                this.ip = parts[0];
-                this.port = parseInt(parts[1]);
+                this.ip = parts[0] ? parts[0] : "localhost";
+                this.port = parts[1] ? parseInt(parts[1]) : 4040;
             }
             else {
+                this.ip = "localhost";
                 this.port = 8080;
             }
 
@@ -124,8 +125,8 @@ export module network {
         public path: string;
 
         public data: string;
-
         public req: net.ClientRequest;
+
 
         constructor(host: string, port: number) {
             super();
@@ -133,29 +134,29 @@ export module network {
             this.host = host;
             this.port = port;
             this.data = "";
-
-            var self = this;
-            this.req.on("error", function (err) {
-                self.emit("error", err);
-            });
         }
 
 
         public connect(path: string, method: string) {
-            var self = this;
-            this.req = net.request({
-                hostname: this.host,
+            var options = {
+                host: this.host,
                 port: this.port,
                 path: path,
-                method: method
-            }, function (res: net.ClientResponse) {
+                method: method,
+            };
+
+            var self = this;
+            this.req = net.request(options, function (res: net.ClientResponse) {
                 res.on("data", function (data) {
                     self.data += data.toString();
                 });
-
                 res.on("end", function () {
-                    self.emit("response", res);
+                    self.emit("response");
                 });
+            });
+
+            this.req.on("error", function (err) {
+                self.emit("error", err);
             });
         }
 

@@ -8,6 +8,7 @@ export module network {
         cset,
         cdelete,
         cpage,
+        clog,
         cerror,
     }
 
@@ -49,7 +50,6 @@ export module network {
             this.id = id;
             this.body = "";
         }
-
     }
 
 
@@ -67,6 +67,15 @@ export module network {
     }
 
 
+    export class logCommand extends command {
+
+
+        constructor() {
+            super(cmdType.clog);
+        }
+    }
+
+
     export class errorCommand extends command {
 
         public code: number;
@@ -78,7 +87,6 @@ export module network {
             this.code = code;
             this.error = error;
         }
-
     }
 
 }

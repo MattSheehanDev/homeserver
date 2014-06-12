@@ -20,8 +20,9 @@ module control {
             this.ip = ko.observable<string>();
             this.port = ko.observable<number>();
 
+            var self = this;
             this.address = ko.computed<string>(function () {
-                return this.ip() + ":" + this.port();
+                return self.ip() + ":" + self.port();
             });
 
             this.fetch();
@@ -50,6 +51,16 @@ module control {
                 },
                 (xhr, status, error) => {
                     alert.call("Error: " + error);
+                });
+        }
+
+        public test() {
+            logConTest(
+                (data, status, xhr) => {
+                    
+                },
+                (xhr, status, error) => {
+
                 });
         }
 

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">11.0</VisualStudioVersion>
@@ -40,6 +40,9 @@
     <TypeScriptCompile Include="lib\config.ts" />
     <TypeScriptCompile Include="lib\database.ts" />
     <TypeScriptCompile Include="lib\http.ts" />
+    <TypeScriptCompile Include="lib\logger.ts">
+      <TestFramework>Default</TestFramework>
+    </TypeScriptCompile>
     <TypeScriptCompile Include="Scripts\typings\node\mongodb.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\node\node.d.ts" />
     <TypeScriptCompile Include="app\server.ts" />

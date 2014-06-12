@@ -12,7 +12,6 @@ export module network {
 
     export class database extends event.EventEmitter {
 
-        public collections: Map<string, collection>;
         public db: mongodb.Db;
         public name: string;
         public ip: string;
@@ -122,13 +121,10 @@ export module network {
         public update(data: Array<any>) {
             var self = this;
             this.collection.update(data, function (err, result) {
-
                 if (err) {
                     self.emit('error', err);
                     return;
                 }
-
-
             });
         }
 
@@ -136,11 +132,24 @@ export module network {
         public drop() {
             var self = this;
             this.collection.drop(function (err, result) {
-
                 if (err) {
                     self.emit('error', err);
                     return;
                 }
+            });
+        }
+
+        public find(cb: (err, cursor) => void) {
+            this.collection.find(cb);
+        }
+
+        public findAndModify(query: Object, sort: any[], doc: Object, options: any, cb: (doc: any) => void) {
+            var self = this;
+            var ret = this.collection.findAndModify(query, sort, doc, options, function (err, doc) {
+                if (err) {
+                    self.emit("error", err);
+                }
+                cb(doc);
             });
         }
 

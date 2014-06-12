@@ -5,6 +5,8 @@ C:\Users\sheehamj\Documents\Visual Studio 2013\Projects\HomeServer\LogServer\obj
 C:\Users\sheehamj\Documents\Visual Studio 2013\Projects\HomeServer\LogServer\obj\Debug\config.js
 C:\Users\sheehamj\Documents\Visual Studio 2013\Projects\HomeServer\LogServer\obj\Debug\database.js
 C:\Users\sheehamj\Documents\Visual Studio 2013\Projects\HomeServer\LogServer\obj\Debug\http.js
+C:\Users\sheehamj\Documents\Visual Studio 2013\Projects\HomeServer\LogServer\obj\Debug\app.js
+C:\Users\sheehamj\Documents\Visual Studio 2013\Projects\HomeServer\LogServer\obj\Debug\logDB.js
 C:\Users\sheehamj\Documents\Visual Studio 2013\Projects\HomeServer\LogServer\obj\Debug\node_modules\mongodb\.travis.yml
 C:\Users\sheehamj\Documents\Visual Studio 2013\Projects\HomeServer\LogServer\obj\Debug\node_modules\mongodb\CONTRIBUTING.md
 C:\Users\sheehamj\Documents\Visual Studio 2013\Projects\HomeServer\LogServer\obj\Debug\node_modules\mongodb\index.js
@@ -236,4 +238,3 @@ C:\Users\sheehamj\Documents\Visual Studio 2013\Projects\HomeServer\LogServer\obj
 C:\Users\sheehamj\Documents\Visual Studio 2013\Projects\HomeServer\LogServer\obj\Debug\node_modules\mongodb\package.json
 C:\Users\sheehamj\Documents\Visual Studio 2013\Projects\HomeServer\LogServer\obj\Debug\node_modules\mongodb\Readme.md
 C:\Users\sheehamj\Documents\Visual Studio 2013\Projects\HomeServer\LogServer\obj\Debug\bin\Microsoft.NodejsTools.WebRole.dll
-C:\Users\sheehamj\Documents\Visual Studio 2013\Projects\HomeServer\LogServer\obj\Debug\app.js

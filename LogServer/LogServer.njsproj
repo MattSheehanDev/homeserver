@@ -41,6 +41,7 @@
     <TypeScriptCompile Include="database.ts" />
     <TypeScriptCompile Include="http.ts" />
     <TypeScriptCompile Include="app.ts" />
+    <TypeScriptCompile Include="logDB.ts" />
     <TypeScriptCompile Include="Scripts\typings\node\mongodb.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\node\node.d.ts" />
   </ItemGroup>

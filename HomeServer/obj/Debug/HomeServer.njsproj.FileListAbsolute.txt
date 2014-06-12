@@ -240,6 +240,7 @@ C:\Users\sheehamj\Documents\Visual Studio 2013\Projects\HomeServer\HomeServer\ob
 C:\Users\sheehamj\Documents\Visual Studio 2013\Projects\HomeServer\HomeServer\obj\Debug\lib\config.js
 C:\Users\sheehamj\Documents\Visual Studio 2013\Projects\HomeServer\HomeServer\obj\Debug\lib\database.js
 C:\Users\sheehamj\Documents\Visual Studio 2013\Projects\HomeServer\HomeServer\obj\Debug\lib\http.js
+C:\Users\sheehamj\Documents\Visual Studio 2013\Projects\HomeServer\HomeServer\obj\Debug\lib\logger.js
 C:\Users\sheehamj\Documents\Visual Studio 2013\Projects\HomeServer\HomeServer\obj\Debug\app\server.js
 C:\Users\sheehamj\Documents\Visual Studio 2013\Projects\HomeServer\HomeServer\obj\Debug\node_modules\.bin\lessc
 C:\Users\sheehamj\Documents\Visual Studio 2013\Projects\HomeServer\HomeServer\obj\Debug\node_modules\.bin\lessc.cmd
@@ -1087,4 +1088,3 @@ C:\Users\sheehamj\Documents\Visual Studio 2013\Projects\HomeServer\HomeServer\ob
 C:\Users\sheehamj\Documents\Visual Studio 2013\Projects\HomeServer\HomeServer\obj\Debug\node_modules\mongodb\node_modules\bson\build\binding.sln
 C:\Users\sheehamj\Documents\Visual Studio 2013\Projects\HomeServer\HomeServer\obj\Debug\node_modules\mongodb\node_modules\kerberos\build\binding.sln
 C:\Users\sheehamj\Documents\Visual Studio 2013\Projects\HomeServer\HomeServer\obj\Debug\bin\Microsoft.NodejsTools.WebRole.dll
-C:\Users\sheehamj\Documents\Visual Studio 2013\Projects\HomeServer\HomeServer\obj\Debug\HomeServer.njsprojResolveAssemblyReference.cache

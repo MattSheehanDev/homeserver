@@ -14,13 +14,10 @@ export module network {
         public path: string;
         public config: any;
         public json: string;
-        //public scheme: schema;
         
 
         constructor(path: string) {
             super();
-
-            //this.scheme = new schema();
 
             if (path[path.length-1] != "/") {
                 path += "/"
@@ -76,8 +73,9 @@ export module network {
         public save() {
             var self = this;
             fs.writeFile(this.path, JSON.stringify(this.config, null, 4), function (err) {
-
-
+                if (err) {
+                    self.emit("error", err);
+                }
             });
         }
 
@@ -158,22 +156,6 @@ export module network {
         constructor(code, data = null) {
             this.code = code;
             this.data = data;
-        }
-
-    }
-
-
-    export class schema {
-
-
-        public objects: Map<string, Array<string>>;
-        public singletons: Array<string>;
-
-
-        constructor() {
-
-            this.objects = new Map<string, Array<string>>();
-            this.singletons = new Array<string>();
         }
 
     }

@@ -4,7 +4,7 @@ module control {
 
     export var baseuri = location.protocol + "//" + location.host + "/"
 
-    export function getServer(success: (data: any, status: any, xhr: any) => void, error: (xhr: any, status: any, data: any) => void) {
+    export function getServer(success: (data: any, status: any, xhr: JQueryXHR) => void, error: (xhr: JQueryXHR, status: any, data: any) => void) {
         $.ajax({
             url: baseuri + "http",
             type: "GET",
@@ -14,17 +14,18 @@ module control {
         });
     }
 
-    export function setServer(data: any, success: (data: any, status: any, xhr: any) => void, error: (xhr: any, status: any, data: any) => void) {
+    export function setServer(data: any, success: (data: any, status: any, xhr: JQueryXHR) => void, error: (xhr: JQueryXHR, status: any, data: any) => void) {
         $.ajax({
             url: baseuri + "http",
             type: "POST",
+            dataType: "test",
             data: data,
             success: success,
             error: error,
         });
     }
 
-    export function getDatabase(success: (data: any, status: any, xhr: any) => void, error: (xhr: any, status: any, error: any) => void) {
+    export function getDatabase(success: (data: any, status: any, xhr: JQueryXHR) => void, error: (xhr: JQueryXHR, status: any, error: any) => void) {
         $.ajax({
             url: baseuri + "database",
             type: "GET",
@@ -34,17 +35,18 @@ module control {
         });
     }
 
-    export function setDatabase(data: any, success: (data: any, status: any, xhr: any) => void, error: (xhr: any, status: any, error: any) => void) {
+    export function setDatabase(data: any, success: (data: any, status: any, xhr: JQueryXHR) => void, error: (xhr: JQueryXHR, status: any, error: any) => void) {
         $.ajax({
             url: baseuri + "database",
             type: "POST",
+            dataType: "test",
             data: data,
             success: success,
             error: error,
         });
     }
 
-    export function getLogging(success: (data: any, status: any, xhr: any) => void, error: (xhr: any, status: any, error: any) => void) {
+    export function getLogging(success: (data: any, status: any, xhr: JQueryXHR) => void, error: (xhr: JQueryXHR, status: any, error: any) => void) {
         $.ajax({
             url: baseuri + "log",
             type: "GET",
@@ -54,11 +56,21 @@ module control {
         });
     }
 
-    export function setLogging(data: any, success: (data: any, status: any, xhr: any) => void, error: (xhr: any, status: any, error: any) => void) {
+    export function setLogging(data: any, success: (data: any, status: any, xhr: JQueryXHR) => void, error: (xhr: JQueryXHR, status: any, error: any) => void) {
         $.ajax({
             url: baseuri + "log",
             type: "POST",
+            dataType: "test",
             data: data,
+            success: success,
+            error: error,
+        });
+    }
+
+    export function logConTest(success: (data: any, status: any, xhr: JQueryXHR) => void, error: (xhr: JQueryXHR, status: any, error: any) => void) {
+        $.ajax({
+            url: baseuri + "log/test",
+            type: "GET",
             success: success,
             error: error,
         });

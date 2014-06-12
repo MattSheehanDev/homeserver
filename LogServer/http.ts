@@ -22,28 +22,20 @@ export module network {
 
         public mime: any;
 
-        constructor(json: any) {
+        constructor(config: any) {
 
-            if (json.address) {
+            if (config.address) {
 
-                var address: string = json.address;
+                var address: string = config.address;
                 var parts = address.split(":");
 
-                this.ip = parts[0];
-                this.port = parseInt(parts[1]);
+                this.ip = parts[0] ? parts[0] : "localhost";
+                this.port = parts[1] ? parseInt(parts[1]) : 4040;
             }
             else {
-                this.port = 8080;
+                this.ip = "localhost";
+                this.port = 4040;
             }
-
-            //this.mime = {
-            //    "html": "text/html",
-            //    "css": "text/css",
-            //    "js": "application/javascript",
-            //    "png": "image/png",
-            //    "svg": "image/svg+xml",
-            //};
-
         }
 
 
@@ -55,24 +47,6 @@ export module network {
                 var parsed: any = this.parseObjId(u.pathname);
                 cmd = new command.network.getCommand(parsed.obj, parsed.id);
                 req.emit("command", cmd);
-
-                //if (u.pathname == "/") {
-                //    u.pathname = "views/index.html";
-                //}
-
-                //var ext = path.extname(u.pathname);
-                //if (ext != "") {
-                //    var mime = this.mime[ext.split(".")[1]];
-                //    var dir = path.join(process.cwd(), "/portal/");
-                //    var file = path.join(dir, u.pathname);
-                //    cmd = new command.network.pageCommand(mime, file);
-                //    req.emit("command", cmd);
-                //}
-                //else {
-                //    var parsed: any = this.parseObjId(u.pathname);
-                //    cmd = new command.network.getCommand(parsed.obj, parsed.id);
-                //    req.emit("command", cmd);
-                //}
             }
             else if (req.method == "POST") {
                 var parsed: any = this.parseObjId(u.pathname);
