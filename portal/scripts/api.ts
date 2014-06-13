@@ -18,7 +18,7 @@ module control {
         $.ajax({
             url: baseuri + "http",
             type: "POST",
-            dataType: "test",
+            dataType: "text",
             data: data,
             success: success,
             error: error,
@@ -39,7 +39,7 @@ module control {
         $.ajax({
             url: baseuri + "database",
             type: "POST",
-            dataType: "test",
+            dataType: "text",
             data: data,
             success: success,
             error: error,
@@ -48,7 +48,7 @@ module control {
 
     export function getLogging(success: (data: any, status: any, xhr: JQueryXHR) => void, error: (xhr: JQueryXHR, status: any, error: any) => void) {
         $.ajax({
-            url: baseuri + "log",
+            url: baseuri + "logging",
             type: "GET",
             dataType: "json",
             success: success,
@@ -58,19 +58,10 @@ module control {
 
     export function setLogging(data: any, success: (data: any, status: any, xhr: JQueryXHR) => void, error: (xhr: JQueryXHR, status: any, error: any) => void) {
         $.ajax({
-            url: baseuri + "log",
+            url: baseuri + "logging",
             type: "POST",
-            dataType: "test",
+            dataType: "text",
             data: data,
-            success: success,
-            error: error,
-        });
-    }
-
-    export function logConTest(success: (data: any, status: any, xhr: JQueryXHR) => void, error: (xhr: JQueryXHR, status: any, error: any) => void) {
-        $.ajax({
-            url: baseuri + "log/test",
-            type: "GET",
             success: success,
             error: error,
         });

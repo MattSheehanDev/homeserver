@@ -48,8 +48,7 @@ export module network {
                     self.config.http.address = "localhost:4040";
                     save = true;
                 }
-                if (!self.config.name) {
-                    self.config.name = "log";
+                if (!self.config.database) {
                     self.config.database = new Object();
                     self.config.database.name = "log";
                     self.config.database.address = "localhost:27017";
@@ -94,19 +93,19 @@ export module network {
 
             var save = false;
             if (object == "http") {
-                if (params["address"]) {
-                    this.config.http.address = params["address"];
+                if (params.address) {
+                    this.config.http.address = params.address;
                     save = true;
                 }
                 res = new result(200);
             }
             else if (object == "database") {
-                if (params["name"]) {
-                    this.config.database.name = params["name"];
+                if (params.name) {
+                    this.config.database.name = params.name;
                     save = true;
                 }
-                if (params["address"]) {
-                    this.config.database.address = params["address"];
+                if (params.address) {
+                    this.config.database.address = params.address;
                     save = true;
                 }
                 res = new result(200, this.config);

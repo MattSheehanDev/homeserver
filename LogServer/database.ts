@@ -139,7 +139,11 @@ export module network {
             });
         }
 
-        public find(cb: (err, cursor) => void) {
+        public find(cb: (err, cursor) => void, data?: any) {
+            if (data) {
+                this.collection.find(data, cb);
+                return;
+            }
             this.collection.find(cb);
         }
 

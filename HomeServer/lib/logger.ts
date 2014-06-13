@@ -2,6 +2,9 @@
 /// <reference path="http.ts" />
 
 import http = require("./http");
+import command = require("./commands");
+
+import path = require("path");
 
 //import event = require("events");
 
@@ -33,10 +36,6 @@ export module network {
         }
 
 
-        public init(path: string) {
-            this.path = path;
-        }
-
         public sendLog(cb: (code: number, msg: string) => void, qs: string) {
             var req = new http.network.httpRequest(this.ip, this.port);
 
@@ -50,24 +49,25 @@ export module network {
                 return;
             });
 
-            req.connect(this.path, "POST");
+            req.connect("/entry", "POST");
             req.write(qs);
             req.end();
         }
 
-        public fetchLogs(cb: (data: any) => void) {
+        public fetchLog(cmd: command.network.logCommand, cb: (err: Error, data: any) => void) {
             var req = new http.network.httpRequest(this.ip, this.port);
 
             req.on("response", function () {
-                cb(req.data);
+                cb(null, req.data);
             });
 
             req.on("error", function (err) {
+                cb(err, req.data);
                 console.log(err);
                 return;
             });
 
-            req.connect(this.path, "GET");
+            req.connect(cmd.path, "GET");
             req.end();
         }
 

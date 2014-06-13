@@ -55,8 +55,12 @@ export module network {
             var u = url.parse(req.url);
 
             if (req.method == "GET") {
-                if (u.pathname == "/") {
-                    u.pathname = "views/index.html";
+                if (u.pathname.charAt(0) == "/") {
+                    u.pathname = u.pathname.slice(1, u.pathname.length);
+
+                    if (u.pathname == "") {
+                        u.pathname = "views/index.html";
+                    }
                 }
 
                 var ext = path.extname(u.pathname);
@@ -68,9 +72,20 @@ export module network {
                     req.emit("command", cmd);
                 }
                 else {
-                    var parsed: any = this.parseObjId(u.pathname);
-                    cmd = new command.network.getCommand(parsed.obj, parsed.id);
-                    req.emit("command", cmd);
+                    var search = u.pathname.split("/");
+                    if (search[0] == "log") {
+                        // Use the whole remainder of the url including query
+                        // Just remove /log/
+                        u.href = u.href.replace("/log/", "/");
+                        var parsed: any = this.parseObjId(u.pathname.replace("log/", ""));
+                        cmd = new command.network.logCommand(parsed.obj, parsed.id, u.href);
+                        req.emit("command", cmd);
+                    }
+                    else {
+                        var parsed: any = this.parseObjId(u.pathname);
+                        cmd = new command.network.getCommand(parsed.obj, parsed.id);
+                        req.emit("command", cmd);
+                    }
                 }
             }
             else if (req.method == "POST") {

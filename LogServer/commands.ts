@@ -25,12 +25,14 @@ export module network {
 
         public obj: string;
         public id: string;
+        public params: any;
 
-        constructor(obj: string, id: string) {
+        constructor(obj: string, id: string, params) {
             super(cmdType.cget);
 
             this.obj = obj;
             this.id = id;
+            this.params = params
         }
     }
 

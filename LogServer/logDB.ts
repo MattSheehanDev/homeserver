@@ -35,8 +35,6 @@ export module network {
                 console.log(err);
                 return;
             });
-
-            
         }
 
 
@@ -44,6 +42,18 @@ export module network {
             this.counter.findAndModify({ _id: "log_id" }, [], { $inc: { seq: 1 } }, { new: true }, function (doc) {
                 cb(doc.seq);
             });
+        }
+
+        public find(params: any, cb: (err, cursor) => void) {
+            if (params == null) {
+                this.log.find(cb);
+            }
+            else {
+                var data: any = new Object();
+                params["id"] ? data._id = parseInt(params["id"]) : null;
+                params["type"] ? data.type = params["type"] : null;
+                this.log.find(cb, data);
+            }
         }
 
     }

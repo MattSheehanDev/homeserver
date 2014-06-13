@@ -10,13 +10,13 @@ module control {
         public address: KnockoutComputed<string>;
         public ip: KnockoutObservable<string>;
         public port: KnockoutObservable<number>;
-        public logging: KnockoutObservable<boolean>;
+        public log: KnockoutObservable<boolean>;
 
         constructor(asset: string) {
             super("log", asset);
             this.definition = "Logging is used to track connections and changes to the server."
 
-            this.logging = ko.observable<boolean>();
+            this.log = ko.observable<boolean>();
             this.ip = ko.observable<string>();
             this.port = ko.observable<number>();
 
@@ -38,29 +38,19 @@ module control {
                     parts[0] ? this.ip(parts[0]) : null;
                     parts[1] ? this.port(parseInt(parts[1])) : null; 
 
-                    data.logging ? this.logging(data.logging) : null;
+                    data.log ? this.log(data.log) : null;
                 },
                 (xhr, status, error) => {
                 });
         }
 
         public save() {
-            setLogging({ address: this.address(), logging: this.logging() },
+            setLogging({ address: this.address(), log: this.log() },
                 (data, status, xhr) => {
                     message.show("Logging Saved.");
                 },
                 (xhr, status, error) => {
                     alert.call("Error: " + error);
-                });
-        }
-
-        public test() {
-            logConTest(
-                (data, status, xhr) => {
-                    
-                },
-                (xhr, status, error) => {
-
                 });
         }
 

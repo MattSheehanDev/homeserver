@@ -54,10 +54,10 @@ export module network {
                     self.config.database.address = "localhost:27017";
                     save = true;
                 }
-                if (!self.config.log) {
-                    self.config.log = new Object();
-                    self.config.log.address = "localhost:4040";
-                    self.config.log.logging = true;
+                if (!self.config.logging) {
+                    self.config.logging = new Object();
+                    self.config.logging.address = "localhost:4040";
+                    self.config.logging.log = true;
                     save = true;
                 }
 
@@ -88,8 +88,8 @@ export module network {
             else if (object == "database") {
                 res = new result(200, JSON.stringify(this.config.database));
             }
-            else if (object == "log") {
-                res = new result(200, JSON.stringify(this.config.log));
+            else if (object == "logging") {
+                res = new result(200, JSON.stringify(this.config.logging));
             }
             else {
                 res = new result(500, "Invalid Command");
@@ -100,35 +100,36 @@ export module network {
 
         public update(object: string, id: string, params: any) {
             var res: result;
-
+            
             var save = false;
             if (object == "http") {
-                if (params["address"]) {
-                    this.config.http.address = params["address"];
+                if (params.address) {
+                    this.config.http.address = params.address;
                     save = true;
                 }
                 res = new result(200);
             }
             else if (object == "database") {
-                if (params["name"]) {
-                    this.config.database.name = params["name"];
+                if (params.name) {
+                    this.config.database.name = params.name;
                     save = true;
                 }
-                if (params["address"]) {
-                    this.config.database.address = params["address"];
+                if (params.address) {
+                    this.config.database.address = params.address;
                     save = true;
                 }
                 res = new result(200);
             }
-            else if (object == "log") {
-                if (params["address"]) {
-                    this.config.log.address = params["address"];
+            else if (object == "logging") {
+                if (params.address) {
+                    this.config.logging.address = params.address;
                     save = true;
                 }
-                if (params["logging"]) {
-                    this.config.log.logging = params["logging"];
+                if (params.log) {
+                    this.config.logging.log = params.log;
                     save = true;
                 }
+                res = new result(200);
             }
             else {
                 res = new result(500, "Invalid Command");

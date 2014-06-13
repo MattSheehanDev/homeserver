@@ -92,9 +92,9 @@
                         <h4>Configuration Properties</h4>
                         <div class="column three-fourths">
                             <div class="column full">
-                                <label>Logging ON: </label><input type="checkbox" data-bind="checked: logging" />
+                                <label>Logging ON: </label><input type="checkbox" data-bind="checked: log" />
                             </div>
-                            <div data-bind="fadeVisible: logging">
+                            <div data-bind="fadeVisible: log">
                                 <div class="column full">
                                     <label>IP: </label><input data-bind="value: ip, valueUpdate: 'afterkeydown'" />
                                 </div>
@@ -105,23 +105,6 @@
                         </div>
                         <div class="column one-fourth">
                             <a class="button rectangle" data-bind="click: save">Save</a>
-                            <a class="button rectangle" data-bind="click: test">Test Connection</a>
-                        </div>
-                    </div>
-                    <div class="row clearfix">
-                        <h4>Log Server Properties</h4>
-                        <!-- use this when not connected -->
-                        <div>
-                            <div class="column three-fourths">
-                                <div class="column full"></div>
-                            </div>
-                            <div class="column one-fourth">
-                                <a class="button rectangle">Test Connection</a>
-                            </div>
-                        </div>
-                        <!-- use this when connected -->
-                        <div>
-
                         </div>
                     </div>
                 </section>

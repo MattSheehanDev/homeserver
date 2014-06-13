@@ -41,15 +41,15 @@ export module network {
 
         public parse(req: net.ServerRequest) {
             var cmd: any;
-            var u = url.parse(req.url);
+            var uri: url.Url = url.parse(req.url);
 
             if (req.method == "GET") {
-                var parsed: any = this.parseObjId(u.pathname);
-                cmd = new command.network.getCommand(parsed.obj, parsed.id);
+                var parsed: any = this.parseObjId(uri);
+                cmd = new command.network.getCommand(parsed.obj, parsed.id, parsed.params);
                 req.emit("command", cmd);
             }
             else if (req.method == "POST") {
-                var parsed: any = this.parseObjId(u.pathname);
+                var parsed: any = this.parseObjId(uri);
                 cmd = new command.network.postCommand(parsed.obj, parsed.id);
 
                 req.on("data", function (data) {
@@ -67,24 +67,28 @@ export module network {
             }
         }
 
-        public parseObjId(str: string) {
-            if (str.charAt(0) == "/") {
-                str = str.slice(1, str.length);
+        public parseObjId(url: url.Url) {
+
+            var path = url.pathname;
+            if (path.charAt(0) == "/") {
+                path = path.slice(1, path.length);
             }
-            if (str.charAt(str.length - 1) != "/") {
-                str += "/";
+            if (path.charAt(path.length - 1) != "/") {
+                path += "/";
             }
 
-            var parts = str.split("/");
+            var parts = path.split("/");
 
             var obj = parts[0];
             var id = parts[1];
 
-            return { obj: obj, id: id };
+            var query = url.query;
+            var params = query != "" ? qs.parse(query) : null;
+
+            return { obj: obj, id: id, params: params };
         }
 
         public run(onHttp: (req: net.ServerRequest, res: net.ServerResponse) => void) {
-
             this.server = net.createServer(onHttp);
             this.server.listen(this.port, this.ip);
         }

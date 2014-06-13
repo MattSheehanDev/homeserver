@@ -44,9 +44,7 @@ export module network {
 
                 //self.database = new db.app.db(config.database);
 
-                self.log = new logger.network.logger(config.log);
-                self.log.init("/log");
-
+                self.log = new logger.network.logger(config.logging);
                 self.server = new http.network.http(config.http);
 
                 self.emit("ready");
@@ -92,24 +90,29 @@ export module network {
                             break;
                         }
                         case command.network.cmdType.cget: {
-                            if (cmd.obj == "log") {
-                                self.log.fetchLogs((data: any) => {
-                                    res.writeHead(200, { "Content-Type": "text/plain" });
-                                    res.write(data);
-                                    res.end();
-                                });
-                            }
-                            else {
-                                var result = self.configuration.retrieve(cmd.obj, cmd.id);
-                                res.writeHead(result.code, { "Content-Type": "text/plain" });
-                                res.end(result.data);
-                            }
+                            var result = self.configuration.retrieve(cmd.obj, cmd.id);
+                            res.writeHead(result.code, { "Content-Type": "text/plain" });
+                            res.end(result.data);
                             break;
                         }
                         case command.network.cmdType.cset: {
                             var result = self.configuration.update(cmd.obj, cmd.id, cmd.params);
                             res.writeHead(result.code)
+                            res.end();
+                            break;
+                        }
+                        case command.network.cmdType.clog: {
+                            self.log.fetchLog(cmd, (err: Error, data: any) => {
+                                if (err) {
+                                    res.writeHead(500);
+                                    res.end(err.message);
+                                    return;
+                                }
+
+                                res.writeHead(200, { "Content-Type": "text/plain" });
+                                res.write(data);
                                 res.end();
+                            });
                             break;
                         }
                         case command.network.cmdType.cerror: {
