@@ -69,15 +69,11 @@ export module network {
 
     export class logCommand extends command {
 
-        public obj: string;
-        public id: string;
         public path: string;
 
-        constructor(obj: string, id: string, path: string) {
+        constructor(path: string) {
             super(cmdType.clog);
 
-            this.obj = obj;
-            this.id = id;
             this.path = path;
         }
     }

@@ -77,8 +77,8 @@ export module network {
                         // Use the whole remainder of the url including query
                         // Just remove /log/
                         u.href = u.href.replace("/log/", "/");
-                        var parsed: any = this.parseObjId(u.pathname.replace("log/", ""));
-                        cmd = new command.network.logCommand(parsed.obj, parsed.id, u.href);
+                        //var parsed: any = this.parseObjId(u.pathname.replace("log/", ""));
+                        cmd = new command.network.logCommand(u.href);
                         req.emit("command", cmd);
                     }
                     else {
